@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import ParallaxProviderWrapper from '@/components/ParallaxProvider';
 
 export const metadata: Metadata = {
   title: "Proizvodnja vlažnih maramica - Markus CO",
@@ -28,7 +29,9 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
       </head>
       <body className="overflow-x-hidden">
-        {children}
+        <ParallaxProviderWrapper>
+          {children}
+        </ParallaxProviderWrapper>
       </body>
     </html>
   );

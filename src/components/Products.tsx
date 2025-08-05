@@ -202,25 +202,27 @@ export default function Products() {
 
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 max-w-6xl mx-auto px-4 md:px-8">
         {products.map((product) => (
-          <div key={product.id}>
-            <div className="card w-full bg-base-100 border border-gray-300 shadow-xl rounded-lg flex flex-col overflow-hidden mx-auto">
-              <div className="flex items-center justify-center p-2">
+          <div key={product.id} className="h-full">
+            <div className="card w-full h-full bg-base-100 border border-gray-300 shadow-xl rounded-lg flex flex-col overflow-hidden mx-auto">
+              <div className="flex items-center justify-center p-4 h-64">
                 <Image
                   src={product.image}
                   alt={product.name}
                   width={400}
                   height={400}
-                  className="w-full h-auto max-h-80 sm:max-h-96 object-contain"
+                  className="w-full h-full object-contain"
                 />
               </div>
-              <div className="card-body p-4 items-center text-center">
-                <h2 className="card-title text-lg font-semibold text-[#2e3455] font-[Nunito]">
-                  {product.name}
-                </h2>
-                <p className="text-[#1f2239] text-base font-[Nunito]">
-                  {product.description}
-                </p>
-                <div className="card-actions justify-center mt-4">
+              <div className="card-body p-4 items-center text-center flex-1 flex flex-col justify-between">
+                <div>
+                  <h2 className="card-title text-lg font-semibold text-[#2e3455] font-[Nunito] mb-3">
+                    {product.name}
+                  </h2>
+                  <p className="text-[#1f2239] text-base font-[Nunito] mb-4">
+                    {product.description}
+                  </p>
+                </div>
+                <div className="card-actions justify-center mt-auto">
                   <button
                     className="px-8 py-3 bg-[#c19d5f] text-white font-semibold rounded-lg hover:bg-[#b08d4f] transition-all duration-300 transform hover:scale-105 shadow-lg font-[Nunito]"
                     onClick={() => handleProductClick(product)}
