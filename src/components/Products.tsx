@@ -147,6 +147,30 @@ export default function Products() {
       modalSertificate2:'assets/m_ic_2.png',
       modalSertificate3:'assets/m_ic_3.png',
       packSize:'80 Komada',
+    },
+    {
+      id: 5,
+      name: 'Family Fit Wet Wipes',
+      description: 'Praktične maramice za celu porodicu, idealne za svakodnevnu upotrebu i održavanje higijene u svim životnim situacijama.',
+      image: '/M_S_slike_nove/baby fit.jpg',
+      modalContent: 'Vlažne maramice namenjene celoj porodici, pružaju praktičnost i higijenu za svakodnevnu upotrebu. Savršene za brzo osvežavanje i čišćenje kada je potrebno.',
+      modalImage:'M_S_slike_nove/baby fit.jpg',
+      modalSertificate1:'assets/m_ic_1.png',
+      modalSertificate2:'assets/m_ic_2.png',
+      modalSertificate3:'assets/ikonica_3.jpg',
+      packSize:'100 Komada',
+    },
+    {
+      id: 6,
+      name: 'Eco Nature Wet Wipes',
+      description: 'Ekološki prijateljske maramice sa prirodnim sastojcima, za sve koji brinu o životnoj sredini i svojoj koži.',
+      image: '/M_S_slike_nove/universal.jpg',
+      modalContent: 'Ekološki održive vlažne maramice sa prirodnim sastojcima, namenjene svima koji brinu o životnoj sredini. Bezbedne za kožu i prirodu, pružaju istu efikasnost kao i standardne maramice.',
+      modalImage:'M_S_slike_nove/universal.jpg',
+      modalSertificate1:'assets/m_ic_1.png',
+      modalSertificate2:'assets/m_ic_2.png',
+      modalSertificate3:'assets/m_ic_3.png',
+      packSize:'72 Komada',
     }
   ];
 
@@ -176,7 +200,7 @@ export default function Products() {
         </p>
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 max-w-6xl mx-auto px-4 md:px-8">
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 max-w-6xl mx-auto px-4 md:px-8">
         {products.map((product) => (
           <div key={product.id}>
             <div className="card w-full bg-base-100 border border-gray-300 shadow-xl rounded-lg flex flex-col overflow-hidden mx-auto">
