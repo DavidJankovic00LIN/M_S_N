@@ -15,8 +15,8 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="bg-white text-gray-900 font-[Nunito]">
-      <div className="border-t border-gray-700 mt-6"></div>
+    <footer className="bg-white  font-[Nunito]">
+      <div className="border-t-1 border-black"></div>
       <div className="max-w-7xl mx-auto px-4 py-10 grid grid-cols-1 md:grid-cols-3 gap-8">
         <div className="flex flex-col items-center md:items-start text-center md:text-left">
           <Image
