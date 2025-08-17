@@ -1,7 +1,7 @@
 'use client';
 
 import Image from 'next/image';
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, useCallback } from 'react';
 
 export default function Navigation() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -10,24 +10,24 @@ export default function Navigation() {
   const dropdownRef = useRef<HTMLDivElement>(null);
 
   // Handle scroll for mobile navbar show/hide
-  useEffect(() => {
-    const handleScroll = () => {
-      const currentScrollY = window.scrollY;
-      
-      if (currentScrollY > lastScrollY && currentScrollY > 100) {
-        // Scrolling down - hide navbar on mobile
-        setIsVisible(false);
-      } else {
-        // Scrolling up - show navbar
-        setIsVisible(true);
-      }
-      
-      setLastScrollY(currentScrollY);
-    };
+  const handleScroll = useCallback(() => {
+    const currentScrollY = window.scrollY;
+    
+    if (currentScrollY > lastScrollY && currentScrollY > 100) {
+      // Scrolling down - hide navbar on mobile
+      setIsVisible(false);
+    } else {
+      // Scrolling up - show navbar
+      setIsVisible(true);
+    }
+    
+    setLastScrollY(currentScrollY);
+  }, [lastScrollY]);
 
+  useEffect(() => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, [lastScrollY]);
+  }, [handleScroll]);
 
   // Close dropdown when clicking outside
   useEffect(() => {
