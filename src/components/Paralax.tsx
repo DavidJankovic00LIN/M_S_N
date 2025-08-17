@@ -9,7 +9,7 @@ const Parallax = () => {
     const containerRef = useRef<HTMLDivElement>(null)
 
     const parallax = useParallax<HTMLDivElement>({
-        speed: 10,
+        speed: -15,
         targetElement: containerRef.current ?? undefined,
     })
 
@@ -19,13 +19,14 @@ const Parallax = () => {
       className="relative h-[550px] flex items-center justify-center overflow-hidden"
     >
       {/* Parallax pozadinska slika */}
-      <div ref={parallax.ref} className="absolute inset-0 -z-10 bg-gray-100">
+      <div ref={parallax.ref} className="absolute inset-0 -z-10 w-full h-[750px] -top-20">
         <Image
-          src="/M_S_slike_nove/pexels-goda-morgan-121487563-18649612.jpg"
+          src="/assets/paralax_1.png"
           alt="Parallax pozadina"
           fill
-          className="object-cover"
+          className="object-cover object-center"
           priority
+          sizes="100vw"
         />
       </div>
       
