@@ -7,6 +7,7 @@ export default function Navigation() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
+  const [activeSection, setActiveSection] = useState('');
   const dropdownRef = useRef<HTMLDivElement>(null);
 
   // Handle scroll for mobile navbar show/hide
@@ -28,6 +29,54 @@ export default function Navigation() {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, [handleScroll]);
+
+  // Track active section using Intersection Observer
+  useEffect(() => {
+    const observerOptions = {
+      rootMargin: '-30% 0px -60% 0px',
+      threshold: 0
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const sectionId = entry.target.id;
+          // Don't activate 'o_nama' if we're still in Hero section
+          if (sectionId === 'o_nama') {
+            const heroElement = document.querySelector('#hero');
+            if (heroElement) {
+              const heroRect = heroElement.getBoundingClientRect();
+              // Only activate if Hero section is mostly out of view
+              if (heroRect.bottom < window.innerHeight * 0.3) {
+                setActiveSection(sectionId);
+              } else {
+                // If we're back in Hero section, deactivate 'o_nama'
+                setActiveSection('');
+              }
+            }
+          } else {
+            setActiveSection(sectionId);
+          }
+                 } else {
+           // When section is not intersecting, remove it as active
+           if (activeSection === entry.target.id) {
+             setActiveSection('');
+           }
+         }
+      });
+    }, observerOptions);
+
+    // Observe all sections
+    const sections = ['o_nama', 'Proizvodi', 'usluzna_proizvodnja', 'kontakt'];
+    sections.forEach((sectionId) => {
+      const element = document.getElementById(sectionId);
+      if (element) {
+        observer.observe(element);
+      }
+    });
+
+         return () => observer.disconnect();
+   }, []);
 
   // Close dropdown when clicking outside
   useEffect(() => {
@@ -55,11 +104,25 @@ export default function Navigation() {
         <div className="max-w-22xl mx-auto flex flex-row items-center justify-center space-x-12 py-4 px-4 sm:px-0 sm:pl-18">
           {/* Levi linkovi */}
           <div className="flex items-center space-x-12">
-            <a href="#o_nama" className="text-sm text-[#1f2239] font-medium hover:text-gray-600 transition-colors font-[Nunito]">
+            <a href="#o_nama" className={`relative text-sm font-medium transition-all duration-300 font-[Nunito] group ${
+              activeSection === 'o_nama' 
+                ? 'text-[#c19d5f]' 
+                : 'text-[#1f2239] hover:text-[#c19d5f]'
+            }`}>
               O nama
+              <div className={`absolute bottom-0 left-0 h-0.5 bg-[#c19d5f] transition-all duration-300 ${
+                activeSection === 'o_nama' ? 'w-full' : 'w-0 group-hover:w-full'
+              }`}></div>
             </a>
-            <a href="#Proizvodi" className="text-sm text-[#1f2239] font-medium hover:text-gray-600 transition-colors font-[Nunito]">
+            <a href="#Proizvodi" className={`relative text-sm font-medium transition-all duration-300 font-[Nunito] group ${
+              activeSection === 'Proizvodi' 
+                ? 'text-[#c19d5f]' 
+                : 'text-[#1f2239] hover:text-[#c19d5f]'
+            }`}>
               Proizvodi
+              <div className={`absolute bottom-0 left-0 h-0.5 bg-[#c19d5f] transition-all duration-300 ${
+                activeSection === 'Proizvodi' ? 'w-full' : 'w-0 group-hover:w-full'
+              }`}></div>
             </a>
           </div>
 
@@ -74,11 +137,25 @@ export default function Navigation() {
 
           {/* Desni linkovi */}
           <div className="flex items-center space-x-12">
-            <a href="#usluzna_proizvodnja" className="text-sm text-[#1f2239] font-medium hover:text-gray-600 transition-colors font-[Nunito]">
+            <a href="#usluzna_proizvodnja" className={`relative text-sm font-medium transition-all duration-300 font-[Nunito] group ${
+              activeSection === 'usluzna_proizvodnja' 
+                ? 'text-[#c19d5f]' 
+                : 'text-[#1f2239] hover:text-[#c19d5f]'
+            }`}>
               Uslužna proizvodnja
+              <div className={`absolute bottom-0 left-0 h-0.5 bg-[#c19d5f] transition-all duration-300 ${
+                activeSection === 'usluzna_proizvodnja' ? 'w-full' : 'w-0 group-hover:w-full'
+              }`}></div>
             </a>
-            <a href="#kontakt" className="text-sm text-[#1f2239] font-medium hover:text-gray-600 transition-colors font-[Nunito]">
+            <a href="#kontakt" className={`relative text-sm font-medium transition-all duration-300 font-[Nunito] group ${
+              activeSection === 'kontakt' 
+                ? 'text-[#c19d5f]' 
+                : 'text-[#1f2239] hover:text-[#c19d5f]'
+            }`}>
               Kontakt
+              <div className={`absolute bottom-0 left-0 h-0.5 bg-[#c19d5f] transition-all duration-300 ${
+                activeSection === 'kontakt' ? 'w-full' : 'w-0 group-hover:w-full'
+              }`}></div>
             </a>
           </div>
         </div>
