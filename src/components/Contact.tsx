@@ -42,13 +42,12 @@ export default function Contact() {
     <div id="kontakt">
       <div className="flex w-full flex-col bg-white">
         <div>
-          <div className="flex items-center justify-center w-[70%] mx-auto my-8">
-            <div className="flex-grow h-px bg-gradient-to-r from-transparent via-gray-400 to-gray-600"></div>
-            <span className="px-4 text-4xl font-bold text-[#2e3455] whitespace-nowrap font-[Nunito]">
-              Kontakt
-            </span>
-            <div className="flex-grow h-px bg-gradient-to-l from-transparent via-gray-400 to-gray-600"></div>
-          </div>
+                     <div className="text-center my-8">
+             <h2 className="text-4xl font-bold text-[#2e3455] font-[Nunito] mb-2">
+               Kontakt
+             </h2>
+             <div className="w-24 h-1 mx-auto bg-[#d2b277] rounded"></div>
+           </div>
         </div>
         
         <section className="bg-white py-12">
@@ -75,7 +74,7 @@ export default function Contact() {
             {/* SLIKA ISPOD IKONICA */}
             <div className="mt-12 flex justify-center">
               <Image
-                src="/M_S_slike_nove/Baby_bolji_logo-removebg-preview.png"
+                                 src="/assets/Baby_bolji_logo-removebg-preview.png"
                 alt="Kontakt slika"
                 width={600}
                 height={300}

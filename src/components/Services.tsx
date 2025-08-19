@@ -5,13 +5,12 @@ export default function Services() {
     <div id="usluzna_proizvodnja">
       <div className="grid grid-cols-6 gap-8 py-20 px-4 bg-white">
         <div className="col-span-4 col-start-2">
-          <div className="flex items-center justify-center my-8">
-            <div className="flex-grow h-px bg-gradient-to-l from-gray-400 via-gray-600 to-transparent"></div>
-            <span className="px-4 text-4xl font-bold text-[#2e3455] whitespace-nowrap font-[Nunito]">
-              Uslužna proizvodnja
-            </span>
-            <div className="flex-grow h-px bg-gradient-to-r from-gray-400 via-gray-600 to-transparent"></div>
-          </div>
+                     <div className="text-center my-8">
+             <h2 className="text-4xl font-bold text-[#2e3455] font-[Nunito] mb-2">
+               Uslužna proizvodnja
+             </h2>
+             <div className="w-24 h-1 mx-auto bg-[#d2b277] rounded"></div>
+           </div>
           <div className="flex flex-col-reverse md:flex-row items-center gap-8">
             <div className="w-full md:w-1/2">
               <p className="text-[#1f2239] font-[Nunito] text-lg">

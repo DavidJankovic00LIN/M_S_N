@@ -4,6 +4,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 export default function TermsAndConditions() {
+
   return (
     <div className="max-w-4xl mx-auto px-4 py-12">
       <div className="text-center mb-12">

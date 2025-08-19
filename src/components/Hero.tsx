@@ -6,10 +6,10 @@ export default function Hero() {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   const images = [
-    '/M_S_slike_nove/Egipat 2012 BABY FIT photo.jpg',
-    '/M_S_slike_nove/pexels-goda-morgan-121487563-18649629.jpg',
-    '/M_S_slike_nove/pexels-goda-morgan-121487563-9896886.jpg',
-    '/M_S_slike_nove/baby-6823431_1280.jpg',
+    '/assets/1.jpg',
+    '/assets/2.jpg',
+    '/assets/pexels-goda-morgan-121487563-9896886.jpg',
+  
   ];
 
   useEffect(() => {

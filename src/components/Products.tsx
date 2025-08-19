@@ -103,9 +103,9 @@ export default function Products() {
       id: 1,
       name: 'Baby Fit Wet Wipes',
       description: 'Nežna i sigurna zaštita za najosetljiviju kožu vaše bebe, uz pažljivo odabrane sastojke i bezbednost na prvom mestu.',
-      image: '/M_S_slike_nove/baby fit.jpg',
+      image: '/assets/baby fit.jpg',
       modalContent: 'Vlažne maramice posebno formulirane za nežnu i sigurnu negu bebine osetljive kože. Bez alkohola i parabena, uz dodatak umirujućih sastojaka koji pružaju osećaj svežine i čistoće.',
-      modalImage:'M_S_slike_nove/baby fit.jpg',
+      modalImage:'assets/baby fit.jpg',
       modalSertificate1:'assets/m_ic_1.png',
       modalSertificate2:'assets/m_ic_2.png',
       modalSertificate3:'assets/ikonica_3.jpg',
@@ -116,9 +116,9 @@ export default function Products() {
       id: 2,
       name: 'Perfecto Wet Wipes',
       description: 'Idealne za osvežavanje i čišćenje nameštaja i površina, praktične za svako domaćinstvo i profesionalnu upotrebu.',
-      image: '/M_S_slike_nove/perfecto fit.jpg',
+      image: '/assets/perfecto fit.jpg',
       modalContent: 'Vlažne maramice namenjene čišćenju i osvežavanju nameštaja i različitih površina. Praktično rešenje za lako održavanje čistoće i urednosti u svakom domu ili radnom prostoru.',
-      modalImage:'M_S_slike_nove/perfecto fit.jpg',
+      modalImage:'assets/perfecto fit.jpg',
       modalSertificate1:'assets/m_ic_1.png',
       modalSertificate2:'assets/m_ic_2.png',
       modalSertificate3:'assets/m_ic_3.png',
@@ -128,9 +128,9 @@ export default function Products() {
       id: 3,
       name: 'Universal Wet Wipes',
       description: 'Svestrane maramice za brzo i lako čišćenje raznih površina, uvek spremne da pruže svežinu i higijenu kada je najpotrebnije.',
-      image: '/M_S_slike_nove/universal.jpg',
+      image: '/assets/universal.jpg',
       modalContent: 'Univerzalne maramice koje omogućavaju brzo i jednostavno čišćenje raznih površina. Savršene za svakodnevnu upotrebu, pružaju osećaj higijene i svežine u svakom trenutku.',
-      modalImage:'M_S_slike_nove/universal.jpg',
+      modalImage:'assets/universal.jpg',
       modalSertificate1:'assets/m_ic_1.png',
       modalSertificate2:'assets/m_ic_2.png',
       modalSertificate3:'assets/m_ic_3.png',
@@ -140,9 +140,9 @@ export default function Products() {
       id: 4,
       name: 'Desinfect Wet Wipes',
       description: 'Specijalizovane maramice sa dezinfekcionim dejstvom, za dodatnu sigurnost i higijenu u vašem domu i radnom prostoru.',
-      image: '/M_S_slike_nove/disinfect.jpg',
+      image: '/assets/Disinfect.jpg',
       modalContent: 'Vlažne maramice sa dezinfekcionim efektom za dodatnu sigurnost i higijenu. Idealne za čišćenje ruku i površina kada je potrebna pouzdana zaštita od bakterija i nečistoća.',
-      modalImage:'M_S_slike_nove/desinfect.jpg',
+      modalImage:'assets/Disinfect.jpg',
       modalSertificate1:'assets/m_ic_1.png',
       modalSertificate2:'assets/m_ic_2.png',
       modalSertificate3:'assets/m_ic_3.png',
@@ -150,11 +150,11 @@ export default function Products() {
     },
     {
       id: 5,
-      name: 'Family Fit Wet Wipes',
+      name: 'Wet',
       description: 'Praktične maramice za celu porodicu, idealne za svakodnevnu upotrebu i održavanje higijene u svim životnim situacijama.',
-      image: '/M_S_slike_nove/baby fit.jpg',
+      image: '/assets/wet.jpg',
       modalContent: 'Vlažne maramice namenjene celoj porodici, pružaju praktičnost i higijenu za svakodnevnu upotrebu. Savršene za brzo osvežavanje i čišćenje kada je potrebno.',
-      modalImage:'M_S_slike_nove/baby fit.jpg',
+      modalImage:'assets/wet.jpg',
       modalSertificate1:'assets/m_ic_1.png',
       modalSertificate2:'assets/m_ic_2.png',
       modalSertificate3:'assets/ikonica_3.jpg',
@@ -164,9 +164,9 @@ export default function Products() {
       id: 6,
       name: 'Eco Nature Wet Wipes',
       description: 'Ekološki prijateljske maramice sa prirodnim sastojcima, za sve koji brinu o životnoj sredini i svojoj koži.',
-      image: '/M_S_slike_nove/universal.jpg',
+      image: '/assets/eko.jpg',
       modalContent: 'Ekološki održive vlažne maramice sa prirodnim sastojcima, namenjene svima koji brinu o životnoj sredini. Bezbedne za kožu i prirodu, pružaju istu efikasnost kao i standardne maramice.',
-      modalImage:'M_S_slike_nove/universal.jpg',
+      modalImage:'assets/eko.jpg',
       modalSertificate1:'assets/m_ic_1.png',
       modalSertificate2:'assets/m_ic_2.png',
       modalSertificate3:'assets/m_ic_3.png',
@@ -187,13 +187,12 @@ export default function Products() {
   return (
     <div id="Proizvodi" className="bg-white py-20">
       <div>
-        <div className="flex items-center justify-center w-[70%] mx-auto my-8">
-          <div className="flex-grow h-px bg-gradient-to-r from-transparent via-gray-400 to-gray-600"></div>
-          <span className="px-4 text-4xl font-bold text-[#2e3455] whitespace-nowrap font-[Nunito]">
-            Naši proizvodi
-          </span>
-          <div className="flex-grow h-px bg-gradient-to-l from-transparent via-gray-400 to-gray-600"></div>
-        </div>
+                 <div className="text-center my-8">
+           <h2 className="text-4xl font-bold text-[#2e3455] font-[Nunito] mb-2">
+             Naši proizvodi
+           </h2>
+           <div className="w-24 h-1 mx-auto bg-[#d2b277] rounded"></div>
+         </div>
 
         <p className="text-center max-w-2xl mx-auto text-[#1f2239] text-lg mb-12 font-[Nunito]">
           Naša linija vlažnih maramica osmišljena je da zadovolji najrazličitije potrebe – od nežne nege beba, preko univerzalnog čišćenja, do specijalizovanih dezinfekcionih rešenja. Kvalitet, praktičnost i pouzdanost u svakom pakovanju.
