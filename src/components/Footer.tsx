@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 
 export default function Footer() {
   const quickLinks = [
@@ -6,6 +7,7 @@ export default function Footer() {
     { href: '#Proizvodi', label: 'Proizvodi' },
     { href: '#usluzna_proizvodnja', label: 'Uslužna proizvodnja' },
     { href: '#kontakt', label: 'Kontakt' },
+    
   ];
 
   const contactInfo = [
@@ -36,9 +38,17 @@ export default function Footer() {
           <ul className="space-y-2">
             {quickLinks.map((link) => (
               <li key={link.href}>
-                <a href={link.href} className="hover:text-gray-600 transition-colors font-[Nunito] text-[#1f2239]">
-                  {link.label}
-                </a>
+                {link.href.startsWith('#') ? (
+                  <a href={link.href} className="relative text-sm font-medium transition-all duration-300 font-[Nunito] group text-[#1f2239] hover:text-[#c19d5f]">
+                    {link.label}
+                    <div className="absolute bottom-0 left-0 h-0.5 bg-[#c19d5f] transition-all duration-300 w-0 group-hover:w-full"></div>
+                  </a>
+                ) : (
+                  <Link href={link.href} className="relative text-sm font-medium transition-all duration-300 font-[Nunito] group text-[#1f2239] hover:text-[#c19d5f]">
+                    {link.label}
+                    <div className="absolute bottom-0 left-0 h-0.5 bg-[#c19d5f] transition-all duration-300 w-0 group-hover:w-full"></div>
+                  </Link>
+                )}
               </li>
             ))}
           </ul>
@@ -60,12 +70,14 @@ export default function Footer() {
         <div className="max-w-7xl mx-auto px-4 py-4 flex flex-col md:flex-row justify-between items-center text-sm font-[Nunito]">
           <p className="mb-2 md:mb-0 text-[#1f2239] font-[Nunito]">&copy; 2025 Markus CO. Sva prava zadržana.</p>
           <div className="flex space-x-4">
-            <a href="uslovi_koriscenja.html" className="hover:text-gray-600 transition-colors font-[Nunito] text-[#1f2239]">
+            <Link href="/uslovi-koriscenja" className="relative text-sm font-medium transition-all duration-300 font-[Nunito] group text-[#1f2239] hover:text-[#c19d5f]">
               Uslovi korišćenja
-            </a>
-            <a href="politika_privatnosti.html" className="hover:text-gray-600 transition-colors font-[Nunito] text-[#1f2239]">
+              <div className="absolute bottom-0 left-0 h-0.5 bg-[#c19d5f] transition-all duration-300 w-0 group-hover:w-full"></div>
+            </Link>
+            <Link href="/politika-privatnosti" className="relative text-sm font-medium transition-all duration-300 font-[Nunito] group text-[#1f2239] hover:text-[#c19d5f]">
               Politika privatnosti
-            </a>
+              <div className="absolute bottom-0 left-0 h-0.5 bg-[#c19d5f] transition-all duration-300 w-0 group-hover:w-full"></div>
+            </Link>
           </div>
         </div>
       </div>

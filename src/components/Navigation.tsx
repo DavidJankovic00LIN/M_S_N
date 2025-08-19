@@ -41,28 +41,37 @@ export default function Navigation() {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           const sectionId = entry.target.id;
-          // Don't activate 'o_nama' if we're still in Hero section
-          if (sectionId === 'o_nama') {
-            const heroElement = document.querySelector('#hero');
+          
+          // Special handling for 'o_nama' section
+          if (sectionId === 'About') {
+            const heroElement = document.getElementById('hero');
             if (heroElement) {
               const heroRect = heroElement.getBoundingClientRect();
-              // Only activate if Hero section is mostly out of view
-              if (heroRect.bottom < window.innerHeight * 0.3) {
+              const aboutRect = entry.target.getBoundingClientRect();
+              
+              // Only activate 'o_nama' if Hero section is mostly out of view
+              // and About section is significantly visible
+              if (heroRect.bottom < window.innerHeight * 0.2 && 
+                  aboutRect.top < window.innerHeight * 0.7) {
                 setActiveSection(sectionId);
               } else {
-                // If we're back in Hero section, deactivate 'o_nama'
+                // If Hero is still visible, keep 'o_nama' inactive
                 setActiveSection('');
               }
+            } else {
+              // If no Hero element found, activate normally
+              setActiveSection(sectionId);
             }
           } else {
+            // For other sections, activate normally
             setActiveSection(sectionId);
           }
-                 } else {
-           // When section is not intersecting, remove it as active
-           if (activeSection === entry.target.id) {
-             setActiveSection('');
-           }
-         }
+        } else {
+          // When section is not intersecting, remove it as active
+          if (activeSection === entry.target.id) {
+            setActiveSection('');
+          }
+        }
       });
     }, observerOptions);
 
@@ -75,8 +84,8 @@ export default function Navigation() {
       }
     });
 
-         return () => observer.disconnect();
-   }, []);
+    return () => observer.disconnect();
+  }, [activeSection]);
 
   // Close dropdown when clicking outside
   useEffect(() => {
