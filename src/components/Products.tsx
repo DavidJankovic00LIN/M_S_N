@@ -14,6 +14,9 @@ interface Product {
   modalSertificate3: string;
   packSize: string;
   modalContent: string;
+  modalLabel1: string;
+  modalLabel2: string;
+  modalLabel3: string;
 }
 
 interface ProductModalProps {
@@ -26,9 +29,12 @@ interface ProductModalProps {
   modalSertificate2: string;
   modalSertificate3: string;
   packSize: string;
+  modalLabel1: string;
+  modalLabel2: string;
+  modalLabel3: string;
 }
 
-function ProductModal({ isOpen, onClose, title, content, modalImage, modalSertificate1, modalSertificate2, modalSertificate3, packSize }: ProductModalProps) {
+function ProductModal({ isOpen, onClose, title, content, modalImage, modalSertificate1, modalSertificate2, modalSertificate3, packSize, modalLabel1, modalLabel2, modalLabel3 }: ProductModalProps) {
   if (!isOpen) return null;
 
   return (
@@ -51,29 +57,40 @@ function ProductModal({ isOpen, onClose, title, content, modalImage, modalSertif
                            <h3 className="text-xl font-bold text-[#2e3455] mb-4 font-[Nunito]">{title}</h3>
               <p className="text-[#1f2239] leading-relaxed mb-6 font-[Nunito]">{content}</p>
              
-                           <div className="flex justify-center space-x-4 mb-4">
-                <Image
-                  src={`/${modalSertificate1}`}
-                  alt="Sertifikat 1"
-                  width={80}
-                  height={80}
-                  className="w-16 h-16"
-                />
-                <Image
-                  src={`/${modalSertificate2}`}
-                  alt="Sertifikat 2"
-                  width={80}
-                  height={80}
-                  className="w-16 h-16"
-                />
-                <Image
-                  src={`/${modalSertificate3}`}
-                  alt="Sertifikat 3"
-                  width={80}
-                  height={80}
-                  className="w-16 h-16"
-                />
-              </div>
+                                                       <div className="flex justify-center space-x-4 mb-4">
+                 <div className="text-center">
+                   <Image
+                     src={`/${modalSertificate1}`}
+                     alt="Sertifikat 1"
+                     width={80}
+                     height={80}
+                     className="w-16 h-16 mb-2"
+                   />
+                                       <span className="text-xs text-[#2e3455] font-medium font-[Nunito] block">{modalLabel1}</span>
+                 </div>
+                 
+                 <div className="text-center">
+                   <Image
+                     src={`/${modalSertificate2}`}
+                     alt="Sertifikat 2"
+                     width={80}
+                     height={80}
+                     className="w-16 h-16 mb-2"
+                   />
+                                       <span className="text-xs text-[#2e3455] font-medium font-[Nunito] block">{modalLabel2}</span>
+                 </div>
+                 
+                 <div className="text-center">
+                   <Image
+                     src={`/${modalSertificate3}`}
+                     alt="Sertifikat 3"
+                     width={80}
+                     height={80}
+                     className="w-16 h-16 mb-2"
+                   />
+                                       <span className="text-xs text-[#2e3455] font-medium font-[Nunito] block">{modalLabel3}</span>
+                 </div>
+               </div>
              
              <p className="text-center text-sm text-gray-600 font-semibold py-4 font-[Nunito]">
                Pakovanje: {packSize}
@@ -102,51 +119,63 @@ export default function Products() {
     {
       id: 1,
       name: 'Baby Fit Wet Wipes',
-      description: 'Nežna i sigurna zaštita za najosetljiviju kožu vaše bebe, uz pažljivo odabrane sastojke i bezbednost na prvom mestu.',
+      description: 'Vlažne maramice za bebe',
       image: '/assets/baby fit.jpg',
-      modalContent: 'Vlažne maramice posebno formulirane za nežnu i sigurnu negu bebine osetljive kože. Bez alkohola i parabena, uz dodatak umirujućih sastojaka koji pružaju osećaj svežine i čistoće.',
+      modalContent: 'Baby Fit vlažne maramice održavaju kožu vase bebe mekanom i svežom. Nežno čiste i neguju kod svakog menjanja pelena. Meke i pune, bezalkoholne, pH neutralne i obogaćene E vitaminom. Savršene za nežno čišćenje bebine kože bez vode. Može ih koristiti i cela porodica.',
       modalImage:'assets/baby fit.jpg',
-      modalSertificate1:'assets/m_ic_1.png',
-      modalSertificate2:'assets/m_ic_2.png',
-      modalSertificate3:'assets/ikonica_3.jpg',
-      packSize:'80 Komada',
+      modalSertificate1:'assets/sunce.png',
+      modalSertificate2:'assets/pero.png',
+      modalSertificate3:'assets/beba_3.png',
+      packSize:'72 i 64 Komada',
+      modalLabel1:'Za svakodnevnu negu',
+      modalLabel2:'Ultra nežne',
+      modalLabel3:'Za osetljivu kožu bebe',
     
     },
     {
       id: 2,
       name: 'Perfecto Wet Wipes',
-      description: 'Idealne za osvežavanje i čišćenje nameštaja i površina, praktične za svako domaćinstvo i profesionalnu upotrebu.',
+      description: 'Vlažne maramice za domaćinstvo',
       image: '/assets/perfecto fit.jpg',
-      modalContent: 'Vlažne maramice namenjene čišćenju i osvežavanju nameštaja i različitih površina. Praktično rešenje za lako održavanje čistoće i urednosti u svakom domu ili radnom prostoru.',
+      modalContent: 'Vlažne maramice Perfecto Fit Universal uklanjaju prljavštinu sa svih glatkih površina (nameštaja i laminiranih površina, pločica i laminata, keramike, zidnih pločica, plastike), dok se Perfecto Fit Wood Surface koriste za uklanjanje prljavštine sa nameštaja od drveta i materijala sličnih drvetu sa uljem za brigu o njima, dajući im sjaj.',
       modalImage:'assets/perfecto fit.jpg',
-      modalSertificate1:'assets/m_ic_1.png',
-      modalSertificate2:'assets/m_ic_2.png',
-      modalSertificate3:'assets/m_ic_3.png',
-      packSize:'80 Komada',
+      modalSertificate1:'assets/lako_ciscenje.png',
+      modalSertificate2:'assets/sjaj.png',
+      modalSertificate3:'assets/univerzal.png',
+      packSize:'50 Komada',
+      modalLabel1:'Lako za čišćenje',
+      modalLabel2:'Sjaj i zaštita',
+      modalLabel3:'Univerzalne',
     },
     {
       id: 3,
       name: 'Universal Wet Wipes',
-      description: 'Svestrane maramice za brzo i lako čišćenje raznih površina, uvek spremne da pruže svežinu i higijenu kada je najpotrebnije.',
+      description: 'Vlažne maramice za celu porodicu',
       image: '/assets/universal.jpg',
-      modalContent: 'Univerzalne maramice koje omogućavaju brzo i jednostavno čišćenje raznih površina. Savršene za svakodnevnu upotrebu, pružaju osećaj higijene i svežine u svakom trenutku.',
+      modalContent: ' Universal Fit i Family Fit vlažne maramice u porodičnom pakovanju namenjene su higijeni ruku i lica. Meke, osvežavajuće, pH neutralne i nealergične. Idealne za čišćenje bez vode. ',
       modalImage:'assets/universal.jpg',
-      modalSertificate1:'assets/m_ic_1.png',
-      modalSertificate2:'assets/m_ic_2.png',
-      modalSertificate3:'assets/m_ic_3.png',
+      modalSertificate1:'assets/family.png',
+      modalSertificate2:'assets/univerzal.png',
+      modalSertificate3:'assets/m_ic_1.png',
       packSize:'80 Komada',
+      modalLabel1:'Porodične',
+      modalLabel2:'Univerzalne',
+      modalLabel3:'Za svaki dan',
     },
     {
       id: 4,
       name: 'Desinfect Wet Wipes',
-      description: 'Specijalizovane maramice sa dezinfekcionim dejstvom, za dodatnu sigurnost i higijenu u vašem domu i radnom prostoru.',
+      description: 'Vlažne maramice za dezinfekciju',
       image: '/assets/Disinfect.jpg',
-      modalContent: 'Vlažne maramice sa dezinfekcionim efektom za dodatnu sigurnost i higijenu. Idealne za čišćenje ruku i površina kada je potrebna pouzdana zaštita od bakterija i nečistoća.',
+      modalContent: 'Disinfect Fit Antibacterial vlažne maramice su namenjene za dezinfekciju kože i predmeta. Isključivo za spoljnu upotrebu. Džepno pakovanje omogućava da ih nosite svuda sa sobom.',
       modalImage:'assets/Disinfect.jpg',
       modalSertificate1:'assets/m_ic_1.png',
       modalSertificate2:'assets/m_ic_2.png',
       modalSertificate3:'assets/m_ic_3.png',
       packSize:'80 Komada',
+      modalLabel1:'Dezinfekcija',
+      modalLabel2:'Zaštita',
+      modalLabel3:'Higijena',
     },
     {
       id: 5,
@@ -159,6 +188,9 @@ export default function Products() {
       modalSertificate2:'assets/m_ic_2.png',
       modalSertificate3:'assets/ikonica_3.jpg',
       packSize:'15 Komada',
+      modalLabel1:'Džepno',
+      modalLabel2:'Praktično',
+      modalLabel3:'Portabilno',
     },
     {
       id: 6,
@@ -171,6 +203,9 @@ export default function Products() {
       modalSertificate2:'assets/m_ic_2.png',
       modalSertificate3:'assets/m_ic_3.png',
       packSize:'72 Komada',
+      modalLabel1:'Ekološki',
+      modalLabel2:'Prirodno',
+      modalLabel3:'Biorazgradivo',
     }
   ];
 
@@ -220,6 +255,8 @@ export default function Products() {
                   <p className="text-[#1f2239] text-base font-[Nunito] mb-4">
                     {product.description}
                   </p>
+                  
+                  
                 </div>
                 <div className="card-actions justify-center mt-auto">
                   <button
@@ -245,6 +282,9 @@ export default function Products() {
         modalSertificate2={selectedProduct?.modalSertificate2 || ''}
         modalSertificate3={selectedProduct?.modalSertificate3 || ''}
         packSize={selectedProduct?.packSize || ''}
+        modalLabel1={selectedProduct?.modalLabel1 || ''}
+        modalLabel2={selectedProduct?.modalLabel2 || ''}
+        modalLabel3={selectedProduct?.modalLabel3 || ''}
       />
     </div>
   );
