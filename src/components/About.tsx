@@ -1,3 +1,5 @@
+import FadeInWhenVisible from './FadeInWhenVisible'
+
 export default function About() {
   return (
     <div id="o_nama">
@@ -5,14 +7,20 @@ export default function About() {
         <div className="col-span-4 col-start-2">
           <div>
             <div className="text-center my-8">
-              <h2 className="text-4xl font-bold text-[#2e3455] font-[Nunito] mb-2">
-                O nama
-              </h2>
-              <div className="w-24 h-1 mx-auto bg-[#d2b277] rounded"></div>
+              <FadeInWhenVisible animation="fadeUp" >
+                <h2 className="text-4xl font-bold text-[#2e3455] font-[Nunito] mb-2">
+                  O nama
+                </h2>
+              </FadeInWhenVisible>
+              <FadeInWhenVisible animation="fadeIn" >
+                <div className="w-24 h-1 mx-auto bg-[#d2b277] rounded"></div>
+              </FadeInWhenVisible>
             </div>
-            <p className="text-[#1f2239] font-[Nunito] text-lg">
-              Markus Co je porodična firma iz Valjeva, osnovana 1994. godine, sa jasnom misijom da potrošačima obezbedi kvalitetne i pristupačne proizvode za ličnu higijenu. Sa savremenom opremom i posvećenim timom, razvijamo sopstvene brendove i uspešno sarađujemo sa domaćim i inostranim partnerima, gradeći poverenje kroz kvalitet, odgovornost i inovacije.
-            </p>
+            <FadeInWhenVisible animation="fadeIn" >
+              <p className="text-[#1f2239] font-[Nunito] text-lg">
+                Markus Co je porodična firma iz Valjeva, osnovana 1994. godine, sa jasnom misijom da potrošačima obezbedi kvalitetne i pristupačne proizvode za ličnu higijenu. Sa savremenom opremom i posvećenim timom, razvijamo sopstvene brendove i uspešno sarađujemo sa domaćim i inostranim partnerima, gradeći poverenje kroz kvalitet, odgovornost i inovacije.
+              </p>
+            </FadeInWhenVisible>
           </div>
         </div>
       </div>
