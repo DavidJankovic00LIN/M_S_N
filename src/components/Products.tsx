@@ -2,6 +2,7 @@
 
 import Image from 'next/image';
 import { useState } from 'react';
+import FadeInWhenVisible from './FadeInWhenVisible';
 
 interface Product {
   id: number;
@@ -222,54 +223,68 @@ export default function Products() {
   return (
     <div id="Proizvodi" className="bg-white py-20">
       <div>
-                 <div className="text-center my-8">
-           <h2 className="text-4xl font-bold text-[#2e3455] font-[Nunito] mb-2">
-             Naši proizvodi
-           </h2>
-           <div className="w-24 h-1 mx-auto bg-[#d2b277] rounded"></div>
-         </div>
+        <div className="text-center my-8">
+          <FadeInWhenVisible animation="fadeUp" delay={0.2}>
+            <h2 className="text-4xl font-bold text-[#2e3455] font-[Nunito] mb-2">
+              Naši proizvodi
+            </h2>
+          </FadeInWhenVisible>
+          <FadeInWhenVisible animation="fadeUp" delay={0.4}>
+            <div className="w-24 h-1 mx-auto bg-[#d2b277] rounded"></div>
+          </FadeInWhenVisible>
+        </div>
 
-        <p className="text-center max-w-2xl mx-auto text-[#1f2239] text-lg mb-12 font-[Nunito]">
-          Naša linija vlažnih maramica osmišljena je da zadovolji najrazličitije potrebe – od nežne nege beba, preko univerzalnog čišćenja, do specijalizovanih dezinfekcionih rešenja. Kvalitet, praktičnost i pouzdanost u svakom pakovanju.
-        </p>
+        <FadeInWhenVisible animation="fadeUp" delay={0.6}>
+          <p className="text-center max-w-2xl mx-auto text-[#1f2239] text-lg mb-12 font-[Nunito]">
+            Naša linija vlažnih maramica osmišljena je da zadovolji najrazličitije potrebe – od nežne nege beba, preko univerzalnog čišćenja, do specijalizovanih dezinfekcionih rešenja. Kvalitet, praktičnost i pouzdanost u svakom pakovanju.
+          </p>
+        </FadeInWhenVisible>
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 max-w-6xl mx-auto px-4 md:px-8">
-        {products.map((product) => (
-          <div key={product.id} className="h-full">
-            <div className="card w-full h-full bg-base-100 border border-gray-300 shadow-xl rounded-lg flex flex-col overflow-hidden mx-auto">
-              <div className="flex items-center justify-center p-4 h-64">
-                <Image
-                  src={product.image}
-                  alt={product.name}
-                  width={400}
-                  height={400}
-                  className="w-full h-full object-contain"
-                />
-              </div>
-              <div className="card-body p-4 items-center text-center flex-1 flex flex-col justify-between">
-                <div>
-                  <h2 className="card-title text-lg font-semibold text-[#2e3455] font-[Nunito] mb-3">
-                    {product.name}
-                  </h2>
-                  <p className="text-[#1f2239] text-base font-[Nunito] mb-4">
-                    {product.description}
-                  </p>
-                  
-                  
+        {products.map((product, index) => {
+          // Određujemo animaciju na osnovu pozicije u grid-u
+          let animation: 'slideLeft' | 'slideRight' | 'fadeUp';
+          if (index % 3 === 0) animation = 'slideLeft';      // Leva kolona
+          else if (index % 3 === 1) animation = 'fadeUp';   // Srednja kolona
+          else animation = 'slideRight';                      // Desna kolona
+
+          return (
+            <FadeInWhenVisible key={product.id} animation={animation} delay={index * 0.1}>
+              <div className="h-full">
+                <div className="card w-full h-full bg-base-100 border border-gray-300 shadow-xl rounded-lg flex flex-col overflow-hidden mx-auto">
+                  <div className="flex items-center justify-center p-4 h-64">
+                    <Image
+                      src={product.image}
+                      alt={product.name}
+                      width={400}
+                      height={400}
+                      className="w-full h-full object-contain"
+                    />
+                  </div>
+                  <div className="card-body p-4 items-center text-center flex-1 flex flex-col justify-between">
+                    <div>
+                      <h2 className="card-title text-lg font-semibold text-[#2e3455] font-[Nunito] mb-3">
+                        {product.name}
+                      </h2>
+                      <p className="text-[#1f2239] text-base font-[Nunito] mb-4">
+                        {product.description}
+                      </p>
+                    </div>
+                    <div className="card-actions justify-center mt-auto">
+                      <button
+                        className="px-8 py-3 bg-[#c19d5f] text-white font-semibold rounded-lg hover:bg-[#b08d4f] transition-all duration-300 transform hover:scale-105 shadow-lg font-[Nunito]"
+                        onClick={() => handleProductClick(product)}
+                      >
+                        Detalji
+                      </button>
+                    </div>
+                  </div>
                 </div>
-                <div className="card-actions justify-center mt-auto">
-                  <button
-                    className="px-8 py-3 bg-[#c19d5f] text-white font-semibold rounded-lg hover:bg-[#b08d4f] transition-all duration-300 transform hover:scale-105 shadow-lg font-[Nunito]"
-                    onClick={() => handleProductClick(product)}
-                  >
-                    Detalji
-                  </button>
-                </div>
               </div>
-            </div>
-          </div>
-        ))}
+            </FadeInWhenVisible>
+          );
+        })}
       </div>
 
       <ProductModal

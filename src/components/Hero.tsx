@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import FadeInWhenVisible from './FadeInWhenVisible';
 
 export default function Hero() {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
@@ -42,23 +43,28 @@ export default function Hero() {
         ))}
       </div>
 
-             {/* Sadržaj koji uvek ostaje vidljiv */}
-         <div className="relative pt-24 z-20 flex flex-col items-center justify-center text-center h-full px-4 -mt-12">
-                     <div className="bg-white/20 p-8 w-[450px] rounded-lg shadow-xl border border-white/20">
-             <h1 className="mb-4 text-[30px] font-bold text-[#2e3455] font-[Nunito]">
-               VLAŽNE MARAMICE
-             </h1>
-             <h1 className="mb-6 text-[24px] font-bold text-[#1f2239] font-[Nunito]">
-               30 GODINA UZ VAS
-             </h1>
-
+      {/* Sadržaj koji uvek ostaje vidljiv */}
+      <div className="relative pt-24 z-20 flex flex-col items-center justify-center text-center h-full px-4 -mt-12">
+        <div className="bg-white/20 p-8 w-[450px] rounded-lg shadow-xl border border-white/20">
+          <FadeInWhenVisible animation="fadeUp" delay={0.3}>
+            <h1 className="mb-4 text-[30px] font-bold text-[#2e3455] font-[Nunito]">
+              VLAŽNE MARAMICE
+            </h1>
+          </FadeInWhenVisible>
+          <FadeInWhenVisible animation="fadeUp" delay={0.6}>
+            <h1 className="mb-6 text-[24px] font-bold text-[#1f2239] font-[Nunito]">
+              30 GODINA UZ VAS
+            </h1>
+          </FadeInWhenVisible>
+          <FadeInWhenVisible animation="fadeUp" delay={0.9}>
             <a href="#o_nama">
               <button className="px-8 py-4 bg-[#c19d5f] text-white font-semibold rounded-lg hover:bg-[#b08d4f] transition-all duration-300 transform hover:scale-105 shadow-lg font-[Nunito]">
                 Dobrodošli
               </button>
             </a>
-          </div>
+          </FadeInWhenVisible>
         </div>
       </div>
-    );
+    </div>
+  );
 } 
