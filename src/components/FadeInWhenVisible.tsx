@@ -23,40 +23,49 @@ export default function FadeInWhenVisible({
     threshold: 0.2,
   })
 
-  const variants = {
-    fadeIn: { opacity: inView ? 1 : 0 },
-    fadeUp: {
-      opacity: inView ? 1 : 0,
-      y: inView ? 0 : 20,
-    },
-    slideLeft: {
-      opacity: inView ? 1 : 0,
-      x: inView ? 0 : 50,
-    },
-    slideRight: {
-      opacity: inView ? 1 : 0,
-      x: inView ? 0 : -50,
-    },
-    rotateFade: {
-      opacity: inView ? 1 : 0,
-      rotate: inView ? 0 : -15,
-    },
+  const getVariants = () => {
+    switch (animation) {
+      case 'fadeIn':
+        return {
+          hidden: { opacity: 0 },
+          visible: { opacity: 1 }
+        }
+      case 'fadeUp':
+        return {
+          hidden: { opacity: 0, y: 20 },
+          visible: { opacity: 1, y: 0 }
+        }
+      case 'slideLeft':
+        return {
+          hidden: { opacity: 0, x: 50 },
+          visible: { opacity: 1, x: 0 }
+        }
+      case 'slideRight':
+        return {
+          hidden: { opacity: 0, x: -50 },
+          visible: { opacity: 1, x: 0 }
+        }
+      case 'rotateFade':
+        return {
+          hidden: { opacity: 0, rotate: -15 },
+          visible: { opacity: 1, rotate: 0 }
+        }
+      default:
+        return {
+          hidden: { opacity: 0 },
+          visible: { opacity: 1 }
+        }
+    }
   }
 
   return (
     <motion.div
       ref={ref}
-      initial={false}
-      animate={inView ? 'visible' : 'hidden'}
+      initial="hidden"
+      animate={inView ? "visible" : "hidden"}
+      variants={getVariants()}
       transition={{ duration, delay }}
       style={{ willChange: 'transform, opacity' }}
-      variants={{
-        visible: variants[animation],
-        hidden: {
-          opacity: 0,
-          ...variants[animation],
-        },
-      }}
     >
       {children}
     </motion.div>
