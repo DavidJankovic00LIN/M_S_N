@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import FadeInWhenVisible from './FadeInWhenVisible';
 
 interface ContactItem {
   id: number;
@@ -42,30 +43,40 @@ export default function Contact() {
     <div id="kontakt">
       <div className="flex w-full flex-col bg-white">
         <div>
-                     <div className="text-center my-8">
-             <h2 className="text-4xl font-bold text-[#2e3455] font-[Nunito] mb-2">
-               Kontakt
-             </h2>
-             <div className="w-24 h-1 mx-auto bg-[#d2b277] rounded"></div>
-           </div>
+          <div className="text-center my-8">
+            <FadeInWhenVisible animation="fadeUp" delay={0.2}>
+              <h2 className="text-4xl font-bold text-[#2e3455] font-[Nunito] mb-2">
+                Kontakt
+              </h2>
+            </FadeInWhenVisible>
+            <FadeInWhenVisible animation="fadeUp" delay={0.4}>
+              <div className="w-24 h-1 mx-auto bg-[#d2b277] rounded"></div>
+            </FadeInWhenVisible>
+          </div>
         </div>
         
         <section className="bg-white py-12">
           <div className="max-w-5xl mx-auto px-4">
             <div>
-              <h2 className="text-xl text-center mb-10 font-[Nunito] text-[#1f2239]">
-                Za sva pitanja kontaktirajte nas putem elektronske pošte, telefona ili na našoj adresi
-              </h2>
+              <FadeInWhenVisible animation="fadeUp" delay={0.6}>
+                <h2 className="text-xl text-center mb-10 font-[Nunito] text-[#1f2239]">
+                  Za sva pitanja kontaktirajte nas putem elektronske pošte, telefona ili na našoj adresi
+                </h2>
+              </FadeInWhenVisible>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
-              {contactItems.map((item) => (
+              {contactItems.map((item, index) => (
                 <div key={item.id}>
                   <div>
-                    <div className="rounded-full bg-[#d2b277] p-4 mx-auto mb-4 w-16 h-16 flex items-center justify-center">
-                      {item.icon}
-                    </div>
-                    <p className="text-sm font-bold text-[#1f2239] font-[Nunito]">{item.text}</p>
+                    <FadeInWhenVisible animation="rotateFade" delay={index * 0.2} duration={0.72}>
+                      <div className="rounded-full bg-[#d2b277] p-4 mx-auto mb-4 w-16 h-16 flex items-center justify-center">
+                        {item.icon}
+                      </div>
+                    </FadeInWhenVisible>
+                    <FadeInWhenVisible animation="fadeIn" delay={index * 0.2 + 0.3} duration={0.72}>
+                      <p className="text-sm font-bold text-[#1f2239] font-[Nunito]">{item.text}</p>
+                    </FadeInWhenVisible>
                   </div>
                 </div>
               ))}
@@ -74,7 +85,7 @@ export default function Contact() {
             {/* SLIKA ISPOD IKONICA */}
             <div className="mt-12 flex justify-center">
               <Image
-                                 src="/assets/Baby_bolji_logo-removebg-preview.png"
+                src="/assets/Baby_bolji_logo-removebg-preview.png"
                 alt="Kontakt slika"
                 width={600}
                 height={300}
