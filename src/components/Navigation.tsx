@@ -2,6 +2,8 @@
 
 import Image from 'next/image';
 import { useState, useEffect, useRef, useCallback } from 'react';
+import LanguageSelector from './LanguageSelector';
+import { useLanguage } from '../context/LanguageContext';
 
 export default function Navigation() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -9,6 +11,7 @@ export default function Navigation() {
   const [lastScrollY, setLastScrollY] = useState(0);
   const [activeSection, setActiveSection] = useState('');
   const dropdownRef = useRef<HTMLDivElement>(null);
+  const { t } = useLanguage();
 
   // Handle scroll for mobile navbar show/hide
   const handleScroll = useCallback(() => {
@@ -100,10 +103,10 @@ export default function Navigation() {
   }, []);
 
   const menuItems = [
-    { href: '#o_nama', label: 'O nama' },
-    { href: '#Proizvodi', label: 'Proizvodi' },
-    { href: '#usluzna_proizvodnja', label: 'Uslužna proizvodnja' },
-    { href: '#kontakt', label: 'Kontakt' },
+    { href: '#o_nama', label: t('nav.about') },
+    { href: '#Proizvodi', label: t('nav.products') },
+    { href: '#usluzna_proizvodnja', label: t('nav.services') },
+    { href: '#kontakt', label: t('nav.contact') },
   ];
 
   return (
@@ -113,22 +116,22 @@ export default function Navigation() {
         <div className="max-w-22xl mx-auto flex flex-row items-center justify-center space-x-12 py-4 px-4 sm:px-0 sm:pl-18">
           {/* Levi linkovi */}
           <div className="flex items-center space-x-12">
-            <a href="#o_nama" className={`relative text-sm font-medium transition-all duration-300 font-[Nunito] group ${
-              activeSection === 'o_nama' 
-                ? 'text-[#c19d5f]' 
-                : 'text-[#1f2239] hover:text-[#c19d5f]'
-            }`}>
-              O nama
+                         <a href="#o_nama" className={`relative text-sm font-medium transition-all duration-300 font-[Nunito] group ${
+               activeSection === 'o_nama' 
+                 ? 'text-[#c19d5f]' 
+                 : 'text-[#1f2239] hover:text-[#c19d5f]'
+             }`}>
+               {t('nav.about')}
               <div className={`absolute bottom-0 left-0 h-0.5 bg-[#c19d5f] transition-all duration-300 ${
                 activeSection === 'o_nama' ? 'w-full' : 'w-0 group-hover:w-full'
               }`}></div>
             </a>
-            <a href="#Proizvodi" className={`relative text-sm font-medium transition-all duration-300 font-[Nunito] group ${
-              activeSection === 'Proizvodi' 
-                ? 'text-[#c19d5f]' 
-                : 'text-[#1f2239] hover:text-[#c19d5f]'
-            }`}>
-              Proizvodi
+                         <a href="#Proizvodi" className={`relative text-sm font-medium transition-all duration-300 font-[Nunito] group ${
+               activeSection === 'Proizvodi' 
+                 ? 'text-[#c19d5f]' 
+                 : 'text-[#1f2239] hover:text-[#c19d5f]'
+             }`}>
+               {t('nav.products')}
               <div className={`absolute bottom-0 left-0 h-0.5 bg-[#c19d5f] transition-all duration-300 ${
                 activeSection === 'Proizvodi' ? 'w-full' : 'w-0 group-hover:w-full'
               }`}></div>
@@ -146,26 +149,29 @@ export default function Navigation() {
 
           {/* Desni linkovi */}
           <div className="flex items-center space-x-12">
-            <a href="#usluzna_proizvodnja" className={`relative text-sm font-medium transition-all duration-300 font-[Nunito] group ${
-              activeSection === 'usluzna_proizvodnja' 
-                ? 'text-[#c19d5f]' 
-                : 'text-[#1f2239] hover:text-[#c19d5f]'
-            }`}>
-              Uslužna proizvodnja
+                         <a href="#usluzna_proizvodnja" className={`relative text-sm font-medium transition-all duration-300 font-[Nunito] group ${
+               activeSection === 'usluzna_proizvodnja' 
+                 ? 'text-[#c19d5f]' 
+                 : 'text-[#1f2239] hover:text-[#c19d5f]'
+             }`}>
+               {t('nav.services')}
               <div className={`absolute bottom-0 left-0 h-0.5 bg-[#c19d5f] transition-all duration-300 ${
                 activeSection === 'usluzna_proizvodnja' ? 'w-full' : 'w-0 group-hover:w-full'
               }`}></div>
             </a>
-            <a href="#kontakt" className={`relative text-sm font-medium transition-all duration-300 font-[Nunito] group ${
-              activeSection === 'kontakt' 
-                ? 'text-[#c19d5f]' 
-                : 'text-[#1f2239] hover:text-[#c19d5f]'
-            }`}>
-              Kontakt
+                         <a href="#kontakt" className={`relative text-sm font-medium transition-all duration-300 font-[Nunito] group ${
+               activeSection === 'kontakt' 
+                 ? 'text-[#c19d5f]' 
+                 : 'text-[#1f2239] hover:text-[#c19d5f]'
+             }`}>
+               {t('nav.contact')}
               <div className={`absolute bottom-0 left-0 h-0.5 bg-[#c19d5f] transition-all duration-300 ${
                 activeSection === 'kontakt' ? 'w-full' : 'w-0 group-hover:w-full'
               }`}></div>
             </a>
+            
+            {/* Jezički selector */}
+            <LanguageSelector />
           </div>
         </div>
       </nav>

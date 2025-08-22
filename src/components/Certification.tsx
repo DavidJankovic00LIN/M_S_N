@@ -1,5 +1,8 @@
+'use client';
+
 import Image from 'next/image';
 import FadeInWhenVisible from './FadeInWhenVisible';
+import { useLanguage } from '../context/LanguageContext';
 
 interface CertificationItem {
   id: number;
@@ -9,26 +12,27 @@ interface CertificationItem {
 }
 
 export default function Certification() {
-  const certificationItems: CertificationItem[] = [
-    {
-      id: 1,
-      image: '/assets/m_ic_1.png',
-      title: 'Tradicija duga 30 godina',
-      description: 'Više od dve decenije iskustva i posvećenosti kvalitetu potvrđuju naše mesto na tržištu.'
-    },
-    {
-      id: 2,
-      image: '/assets/m_ic_2.png',
-      title: 'Sertifikovana proizvodnja',
-      description: 'Naši proizvodi nastaju u kontrolisanim uslovima, uz poštovanje najviših standarda kvaliteta i bezbednosti.'
-    },
-    {
-      id: 3,
-      image: '/assets/ikonica_3.jpg',
-      title: 'Posvećenost kupcima',
-      description: 'Naša filozofija temelji se na slušanju vaših potreba i neprekidnom unapređenju naših proizvoda i usluga.'
-    }
-  ];
+  const { t } = useLanguage();
+           const certificationItems: CertificationItem[] = [
+           {
+             id: 1,
+             image: '/assets/m_ic_1.png',
+             title: t('certification.quality'),
+             description: t('certification.descriptions.quality')
+           },
+           {
+             id: 2,
+             image: '/assets/m_ic_2.png',
+             title: t('certification.innovation'),
+             description: t('certification.descriptions.innovation')
+           },
+           {
+             id: 3,
+             image: '/assets/ikonica_3.jpg',
+             title: t('certification.sustainability'),
+             description: t('certification.descriptions.sustainability')
+           }
+         ];
 
   return (
     <div className="bg-white py-20 px-4">

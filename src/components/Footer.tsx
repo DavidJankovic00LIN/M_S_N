@@ -1,13 +1,17 @@
+'use client';
+
 import Image from 'next/image';
 import Link from 'next/link';
 import FadeInWhenVisible from './FadeInWhenVisible';
+import { useLanguage } from '../context/LanguageContext';
 
 export default function Footer() {
+  const { t } = useLanguage();
   const quickLinks = [
-    { href: '#o_nama', label: 'O nama' },
-    { href: '#Proizvodi', label: 'Proizvodi' },
-    { href: '#usluzna_proizvodnja', label: 'Uslužna proizvodnja' },
-    { href: '#kontakt', label: 'Kontakt' },
+    { href: '#o_nama', label: t('nav.about') },
+    { href: '#Proizvodi', label: t('nav.products') },
+    { href: '#usluzna_proizvodnja', label: t('nav.services') },
+    { href: '#kontakt', label: t('nav.contact') },
     
   ];
 
@@ -31,14 +35,14 @@ export default function Footer() {
               className="h-12 mb-4"
             />
             <p className="mb-4 max-w-xs font-[Nunito] text-[#1f2239]">
-              Vaš pouzdan partner u proizvodnji kvalitetnih vlažnih maramica, posvećen sigurnosti, kvalitetu i pristupačnosti.
+              {t('footer.description')}
             </p>
           </div>
         </FadeInWhenVisible>
         
         <FadeInWhenVisible animation="fadeUp" delay={0.4}>
           <div className="text-center md:text-left">
-            <h3 className="text-lg font-bold mb-4 font-[Nunito] text-[#2e3455]">Brzi linkovi</h3>
+            <h3 className="text-lg font-bold mb-4 font-[Nunito] text-[#2e3455]">{t('footer.quickLinks')}</h3>
             <ul className="space-y-2">
               {quickLinks.map((link) => (
                 <li key={link.href}>
@@ -61,7 +65,7 @@ export default function Footer() {
         
         <FadeInWhenVisible animation="fadeUp" delay={0.6}>
           <div className="text-center md:text-left">
-            <h3 className="text-lg font-bold mb-4 font-[Nunito] text-[#2e3455]">Kontaktirajte nas</h3>
+            <h3 className="text-lg font-bold mb-4 font-[Nunito] text-[#2e3455]">{t('footer.contactInfo')}</h3>
             <ul className="space-y-2">
               {contactInfo.map((info, index) => (
                 <li key={index}>
@@ -75,17 +79,17 @@ export default function Footer() {
       
       <div className="border-t border-gray-700 mt-6">
         <div className="max-w-7xl mx-auto px-4 py-4 flex flex-col md:flex-row justify-between items-center text-sm font-[Nunito]">
-          <p className="mb-2 md:mb-0 text-[#1f2239] font-[Nunito]">&copy; 2025 Markus CO. Sva prava zadržana.</p>
-          <div className="flex space-x-4">
-            <Link href="/uslovi-koriscenja" className="relative text-sm font-medium transition-all duration-300 font-[Nunito] group text-[#1f2239] hover:text-[#c19d5f]">
-              Uslovi korišćenja
-              <div className="absolute bottom-0 left-0 h-0.5 bg-[#c19d5f] transition-all duration-300 w-0 group-hover:w-full"></div>
-            </Link>
-            <Link href="/politika-privatnosti" className="relative text-sm font-medium transition-all duration-300 font-[Nunito] group text-[#1f2239] hover:text-[#c19d5f]">
-              Politika privatnosti
-              <div className="absolute bottom-0 left-0 h-0.5 bg-[#c19d5f] transition-all duration-300 w-0 group-hover:w-full"></div>
-            </Link>
-          </div>
+          <p className="mb-2 md:mb-0 text-[#1f2239] font-[Nunito]">{t('footer.copyright')}</p>
+                           <div className="flex space-x-4">
+                   <Link href="/uslovi-koriscenja" className="relative text-sm font-medium transition-all duration-300 font-[Nunito] group text-[#1f2239] hover:text-[#c19d5f]">
+                     {t('footer.termsOfUse')}
+                     <div className="absolute bottom-0 left-0 h-0.5 bg-[#c19d5f] transition-all duration-300 w-0 group-hover:w-full"></div>
+                   </Link>
+                   <Link href="/politika-privatnosti" className="relative text-sm font-medium transition-all duration-300 font-[Nunito] group text-[#1f2239] hover:text-[#c19d5f]">
+                     {t('footer.privacyPolicy')}
+                     <div className="absolute bottom-0 left-0 h-0.5 bg-[#c19d5f] transition-all duration-300 w-0 group-hover:w-full"></div>
+                   </Link>
+                 </div>
         </div>
       </div>
     </footer>

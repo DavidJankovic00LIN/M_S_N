@@ -3,6 +3,7 @@
 import Image from 'next/image';
 import { useState } from 'react';
 import FadeInWhenVisible from './FadeInWhenVisible';
+import { useLanguage } from '../context/LanguageContext';
 
 interface Product {
   id: number;
@@ -36,6 +37,7 @@ interface ProductModalProps {
 }
 
 function ProductModal({ isOpen, onClose, title, content, modalImage, modalSertificate1, modalSertificate2, modalSertificate3, packSize, modalLabel1, modalLabel2, modalLabel3 }: ProductModalProps) {
+  const { t } = useLanguage();
   if (!isOpen) return null;
 
   return (
@@ -94,14 +96,14 @@ function ProductModal({ isOpen, onClose, title, content, modalImage, modalSertif
                </div>
              
              <p className="text-center text-sm text-gray-600 font-semibold py-4 font-[Nunito]">
-               Pakovanje: {packSize}
+               {t('packaging')}: {packSize}
              </p>
 
              <button 
             className="px-8 py-4 bg-[#c19d5f] text-white font-semibold rounded-lg hover:bg-[#b08d4f] transition-all duration-300 transform hover:scale-105 shadow-lg font-[Nunito]"
             onClick={onClose} 
           >
-            Zatvori
+                         {t('buttons.close')}
           </button>
            </div>
          </div>
@@ -115,98 +117,99 @@ function ProductModal({ isOpen, onClose, title, content, modalImage, modalSertif
 export default function Products() {
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const { t } = useLanguage();
 
   const products: Product[] = [
     {
       id: 1,
-      name: 'Baby Fit Wet Wipes',
-      description: 'Vlažne maramice za bebe',
+      name: t('products.productNames.babyFit'),
+      description: t('products.productDescriptions.babyFit'),
       image: '/assets/baby fit.jpg',
-      modalContent: 'Baby Fit vlažne maramice održavaju kožu vase bebe mekanom i svežom. Nežno čiste i neguju kod svakog menjanja pelena. Meke i pune, bezalkoholne, pH neutralne i obogaćene E vitaminom. Savršene za nežno čišćenje bebine kože bez vode. Može ih koristiti i cela porodica.',
+      modalContent: t('products.modalContent.babyFit'),
       modalImage:'assets/baby fit.jpg',
       modalSertificate1:'assets/sunce.png',
       modalSertificate2:'assets/pero.png',
       modalSertificate3:'assets/beba_3.png',
       packSize:'72 i 64 Komada',
-      modalLabel1:'Za svakodnevnu negu',
-      modalLabel2:'Ultra nežne',
-      modalLabel3:'Za osetljivu kožu bebe',
-    
+      modalLabel1:t('products.modalLabels.babyFit.label1'),
+      modalLabel2:t('products.modalLabels.babyFit.label2'),
+      modalLabel3:t('products.modalLabels.babyFit.label3'),
+     
     },
     {
       id: 2,
-      name: 'Perfecto Wet Wipes',
-      description: 'Vlažne maramice za domaćinstvo',
+      name: t('products.productNames.perfecto'),
+      description: t('products.productDescriptions.perfecto'),
       image: '/assets/perfecto fit.jpg',
-      modalContent: 'Vlažne maramice Perfecto Fit Universal uklanjaju prljavštinu sa svih glatkih površina (nameštaja i laminiranih površina, pločica i laminata, keramike, zidnih pločica, plastike), dok se Perfecto Fit Wood Surface koriste za uklanjanje prljavštine sa nameštaja od drveta i materijala sličnih drvetu sa uljem za brigu o njima, dajući im sjaj.',
+      modalContent: t('products.modalContent.perfecto'),
       modalImage:'assets/perfecto fit.jpg',
       modalSertificate1:'assets/lako_ciscenje.png',
       modalSertificate2:'assets/sjaj.png',
       modalSertificate3:'assets/univerzal.png',
       packSize:'50 Komada',
-      modalLabel1:'Lako za čišćenje',
-      modalLabel2:'Sjaj i zaštita',
-      modalLabel3:'Univerzalne',
+      modalLabel1:t('products.modalLabels.perfecto.label1'),
+      modalLabel2:t('products.modalLabels.perfecto.label2'),
+      modalLabel3:t('products.modalLabels.perfecto.label3'),
     },
     {
       id: 3,
-      name: 'Universal Wet Wipes',
-      description: 'Vlažne maramice za celu porodicu',
+      name: t('products.productNames.universal'),
+      description: t('products.productDescriptions.universal'),
       image: '/assets/universal.jpg',
-      modalContent: ' Universal Fit i Family Fit vlažne maramice u porodičnom pakovanju namenjene su higijeni ruku i lica. Meke, osvežavajuće, pH neutralne i nealergične. Idealne za čišćenje bez vode. ',
+      modalContent: t('products.modalContent.universal'),
       modalImage:'assets/universal.jpg',
       modalSertificate1:'assets/family.png',
       modalSertificate2:'assets/univerzal.png',
       modalSertificate3:'assets/m_ic_1.png',
       packSize:'80 Komada',
-      modalLabel1:'Porodične',
-      modalLabel2:'Univerzalne',
-      modalLabel3:'Za svaki dan',
+      modalLabel1:t('products.modalLabels.universal.label1'),
+      modalLabel2:t('products.modalLabels.universal.label2'),
+      modalLabel3:t('products.modalLabels.universal.label3'),
     },
     {
       id: 4,
-      name: 'Desinfect Wet Wipes',
-      description: 'Vlažne maramice za dezinfekciju',
+      name: t('products.productNames.disinfect'),
+      description: t('products.productDescriptions.disinfect'),
       image: '/assets/Disinfect.jpg',
-      modalContent: 'Disinfect Fit Antibacterial vlažne maramice su namenjene za dezinfekciju kože i predmeta. Isključivo za spoljnu upotrebu. Džepno pakovanje omogućava da ih nosite svuda sa sobom.',
+      modalContent: t('products.modalContent.disinfect'),
       modalImage:'assets/Disinfect.jpg',
       modalSertificate1:'assets/antibak.png',
       modalSertificate2:'assets/univerzal.png',
       modalSertificate3:'assets/dzepne.png',
       packSize:'15 Komada',
-      modalLabel1:'Antibakterijske',
-      modalLabel2:'Višenamenske',
-      modalLabel3:'Džepne',
+      modalLabel1:t('products.modalLabels.disinfect.label1'),
+      modalLabel2:t('products.modalLabels.disinfect.label2'),
+      modalLabel3:t('products.modalLabels.disinfect.label3'),
     },
     {
       id: 5,
-      name: 'Wet ',
-      description: 'Džepne higijenske vlažne maramice',
+      name: t('products.productNames.wet'),
+      description: t('products.productDescriptions.wet'),
       image: '/assets/wet.jpg',
-      modalContent: 'Wet vlažne maramice bez alkohola posebno su dizajnirane da čiste, neguju i osvežavaju kožu. Džepno pakovanje omogućava da ih nosite svuda sa sobom. Idealno za celu porodicu.',
+      modalContent: t('products.modalContent.wet'),
       modalImage:'assets/wet.jpg',
       modalSertificate1:'assets/m_ic_1.png',
       modalSertificate2:'assets/univerzal.png',
       modalSertificate3:'assets/dzepne.png',
       packSize:'15 Komada',
-      modalLabel1:'Za svaki dan',
-      modalLabel2:'Višenamenske',
-      modalLabel3:'Džepne',
+      modalLabel1:t('products.modalLabels.wet.label1'),
+      modalLabel2:t('products.modalLabels.wet.label2'),
+      modalLabel3:t('products.modalLabels.wet.label3'),
     },
     {
       id: 6,
-      name: 'Eko baby wipes',
-      description: 'Eko vlažne maramice za bebe',
+      name: t('products.productNames.eko'),
+      description: t('products.productDescriptions.eko'),
       image: '/assets/eko.jpg',
-      modalContent: 'Nežno čiste bebinu kožu na prirodan način. Sadrže biorazgradivu tkaninu i sastojke iz bioobnovljivih izvora. Meke i pune, bezalkoholne, održavaju prirodnu pH vrednost kože i nealergične. Može ih koristiti cela porodica.',
+      modalContent: t('products.modalContent.eko'),
       modalImage:'assets/eko.jpg',
       modalSertificate1:'assets/prirodno.png',
       modalSertificate2:'assets/beba_3.png',
       modalSertificate3:'assets/pero.png',
       packSize:'72 Komada',
-      modalLabel1:'Prirodno',
-      modalLabel2:'Za bebe',
-      modalLabel3:'Ultra nežne',
+      modalLabel1:t('products.modalLabels.eko.label1'),
+      modalLabel2:t('products.modalLabels.eko.label2'),
+      modalLabel3:t('products.modalLabels.eko.label3'),
     }
   ];
 
@@ -226,7 +229,7 @@ export default function Products() {
         <div className="text-center my-8">
           <FadeInWhenVisible animation="fadeUp" delay={0.2}>
             <h2 className="text-4xl font-bold text-[#2e3455] font-[Nunito] mb-2">
-              Naši proizvodi
+              {t('products.title')}
             </h2>
           </FadeInWhenVisible>
           <FadeInWhenVisible animation="fadeUp" delay={0.4}>
@@ -236,7 +239,7 @@ export default function Products() {
 
         <FadeInWhenVisible animation="fadeUp" delay={0.6}>
           <p className="text-center max-w-2xl mx-auto text-[#1f2239] text-lg mb-12 font-[Nunito]">
-            Naša linija vlažnih maramica osmišljena je da zadovolji najrazličitije potrebe – od nežne nege beba, preko univerzalnog čišćenja, do specijalizovanih dezinfekcionih rešenja. Kvalitet, praktičnost i pouzdanost u svakom pakovanju.
+            {t('products.description')}
           </p>
         </FadeInWhenVisible>
       </div>
@@ -276,7 +279,7 @@ export default function Products() {
                         className="px-8 py-3 bg-[#c19d5f] text-white font-semibold rounded-lg hover:bg-[#b08d4f] transition-all duration-300 transform hover:scale-105 shadow-lg font-[Nunito]"
                         onClick={() => handleProductClick(product)}
                       >
-                        Detalji
+                        {t('buttons.details')}
                       </button>
                     </div>
                   </div>

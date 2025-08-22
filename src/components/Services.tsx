@@ -1,7 +1,11 @@
+'use client';
+
 import FadeInWhenVisible from './FadeInWhenVisible'
 import Image from 'next/image';
+import { useLanguage } from '../context/LanguageContext';
 
 export default function Services() {
+  const { t } = useLanguage();
   return (
     <div id="usluzna_proizvodnja">
       <div className="grid grid-cols-6 gap-8 py-20 px-4 bg-white">
@@ -10,7 +14,7 @@ export default function Services() {
           <FadeInWhenVisible animation="fadeUp">
                      <div className="text-center my-8">
              <h2 className="text-4xl font-bold text-[#2e3455] font-[Nunito] mb-2">
-               Uslužna proizvodnja
+               {t('services.title')}
              </h2>
              <div className="w-24 h-1 mx-auto bg-[#d2b277] rounded"></div>
            </div>
@@ -19,7 +23,7 @@ export default function Services() {
             <div className="w-full md:w-1/2">
               <FadeInWhenVisible animation="fadeIn">
               <p className="text-[#1f2239] font-[Nunito] text-lg">
-                Specijalizovani smo za proizvodnju privatnih robnih marki vlažnih maramica, sarađujući sa vodećim trgovinskim lancima i partnerima širom zemlje i regiona. Pružamo potpunu i pouzdanu uslugu – od razvoja formule do isporuke gotovog proizvoda – uz poštovanje najviših standarda kvaliteta i fleksibilnost prilagođenu vašim potrebama.
+                {t('services.description')}
               </p>
               </FadeInWhenVisible>
             </div>

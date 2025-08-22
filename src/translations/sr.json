@@ -1,0 +1,112 @@
+{
+  "nav": {
+    "about": "O nama",
+    "products": "Proizvodi",
+    "services": "Uslužna proizvodnja",
+    "contact": "Kontakt"
+  },
+  "hero": {
+    "title": "VLAŽNE MARAMICE",
+    "subtitle": "30 GODINA UZ VAS",
+    "button": "Dobrodošli"
+  },
+  "about": {
+    "title": "O nama",
+    "description": "Kompanija Milica je lider u proizvodnji vlažnih maramica i higijenskih proizvoda. Sa više od 30 godina iskustva, posvećeni smo kvalitetu i inovacijama koje čine svakodnevni život naših kupaca lakšim i zdravijim."
+  },
+  "products": {
+    "title": "Naši proizvodi",
+    "description": "Naša linija vlažnih maramica osmišljena je da zadovolji najrazličitije potrebe – od nežne nege beba, preko univerzalnog čišćenja, do specijalizovanih dezinfekcionih rešenja. Kvalitet, praktičnost i pouzdanost u svakom pakovanju.",
+    "productNames": {
+      "babyFit": "Baby Fit Wet Wipes",
+      "perfecto": "Perfecto Wet Wipes",
+      "universal": "Universal Wet Wipes",
+      "disinfect": "Desinfect Wet Wipes",
+      "wet": "Wet",
+      "eko": "Eko baby wipes"
+    },
+    "productDescriptions": {
+      "babyFit": "Vlažne maramice za bebe",
+      "perfecto": "Vlažne maramice za domaćinstvo",
+      "universal": "Vlažne maramice za celu porodicu",
+      "disinfect": "Vlažne maramice za dezinfekciju",
+      "wet": "Džepne higijenske vlažne maramice",
+      "eko": "Eko vlažne maramice za bebe"
+    },
+    "modalContent": {
+      "babyFit": "Baby Fit vlažne maramice održavaju kožu vase bebe mekanom i svežom. Nežno čiste i neguju kod svakog menjanja pelena. Meke i pune, bezalkoholne, pH neutralne i obogaćene E vitaminom. Savršene za nežno čišćenje bebine kože bez vode. Može ih koristiti i cela porodica.",
+      "perfecto": "Vlažne maramice Perfecto Fit Universal uklanjaju prljavštinu sa svih glatkih površina (nameštaja i laminiranih površina, pločica i laminata, keramike, zidnih pločica, plastike), dok se Perfecto Fit Wood Surface koriste za uklanjanje prljavštine sa nameštaja od drveta i materijala sličnih drvetu sa uljem za brigu o njima, dajući im sjaj.",
+      "universal": "Universal Fit i Family Fit vlažne maramice u porodičnom pakovanju namenjene su higijeni ruku i lica. Meke, osvežavajuće, pH neutralne i nealergične. Idealne za čišćenje bez vode.",
+      "disinfect": "Disinfect Fit Antibacterial vlažne maramice su namenjene za dezinfekciju kože i predmeta. Isključivo za spoljnu upotrebu. Džepno pakovanje omogućava da ih nosite svuda sa sobom.",
+      "wet": "Wet vlažne maramice bez alkohola posebno su dizajnirane da čiste, neguju i osvežavaju kožu. Džepno pakovanje omogućava da ih nosite svuda sa sobom. Idealno za celu porodicu.",
+      "eko": "Nežno čiste bebinu kožu na prirodan način. Sadrže biorazgradivu tkaninu i sastojke iz bioobnovljivih izvora. Meke i pune, bezalkoholne, održavaju prirodnu pH vrednost kože i nealergične. Može ih koristiti cela porodica."
+    },
+    "modalLabels": {
+      "babyFit": {
+        "label1": "Za svakodnevnu negu",
+        "label2": "Ultra nežne",
+        "label3": "Za osetljivu kožu bebe"
+      },
+      "perfecto": {
+        "label1": "Lako za čišćenje",
+        "label2": "Sjaj i zaštita",
+        "label3": "Univerzalne"
+      },
+      "universal": {
+        "label1": "Porodične",
+        "label2": "Univerzalne",
+        "label3": "Za svaki dan"
+      },
+      "disinfect": {
+        "label1": "Antibakterijske",
+        "label2": "Višenamenske",
+        "label3": "Džepne"
+      },
+      "wet": {
+        "label1": "Za svaki dan",
+        "label2": "Višenamenske",
+        "label3": "Džepne"
+      },
+      "eko": {
+        "label1": "Prirodno",
+        "label2": "Za bebe",
+        "label3": "Ultra nežne"
+      }
+    }
+  },
+  "services": {
+    "title": "Uslužna proizvodnja",
+    "description": "Pružamo usluge uslužne proizvodnje prema vašim specifikacijama i zahtevima. Naša iskustva i tehnologija omogućavaju nam da proizvedemo proizvode koji odgovaraju vašim potrebama."
+  },
+  "certification": {
+    "title": "Sertifikati i vrednosti",
+    "quality": "Tradicija duga 30 godina",
+    "innovation": "Sertifikovana proizvodnja",
+    "sustainability": "Posvećenost kupcima",
+    "descriptions": {
+      "quality": "Više od dve decenije iskustva i posvećenosti kvalitetu potvrđuju naše mesto na tržištu.",
+      "innovation": "Naši proizvodi nastaju u kontrolisanim uslovima, uz poštovanje najviših standarda kvaliteta i bezbednosti.",
+      "sustainability": "Naša filozofija temelji se na slušanju vaših potreba i neprekidnom unapređenju naših proizvoda i usluga."
+    }
+  },
+  "contact": {
+    "title": "Kontakt",
+    "subtitle": "Za sva pitanja kontaktirajte nas putem elektronske pošte, telefona ili na našoj adresi",
+    "email": "info@milica.com",
+    "phone": "+381 11 123 456",
+    "address": "Beograd, Srbija"
+  },
+  "footer": {
+    "description": "Vaš pouzdan partner u proizvodnji kvalitetnih vlažnih maramica, posvećen sigurnosti, kvalitetu i pristupačnosti.",
+    "quickLinks": "Brzi linkovi",
+    "contactInfo": "Kontaktirajte nas",
+    "termsOfUse": "Uslovi korišćenja",
+    "privacyPolicy": "Politika privatnosti",
+    "copyright": "Copyright © 2025 Markus Co. Sva prava zadržana."
+  },
+  "buttons": {
+    "details": "Detalji",
+    "close": "Zatvori"
+  },
+  "packaging": "Pakovanje"
+}

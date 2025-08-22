@@ -1,0 +1,108 @@
+{
+  "nav": {
+    "about": "About Us",
+    "products": "Products",
+    "services": "Contract Manufacturing",
+    "contact": "Contact"
+  },
+  "hero": {
+    "title": "WET WIPES",
+    "subtitle": "30 YEARS WITH YOU",
+    "button": "Welcome"
+  },
+  "about": {
+    "title": "About Us",
+    "description": "Markus Co is a family company from Valjevo, founded in 1994, with a clear mission to provide consumers with quality and affordable personal hygiene products. With modern equipment and a dedicated team, we develop our own brands and successfully collaborate with domestic and foreign partners, building trust through quality, responsibility and innovation."
+  },
+  "products": {
+    "title": "Our Products",
+    "description": "Our line of wet wipes is designed to meet the most diverse needs - from gentle baby care, through universal cleaning, to specialized disinfection solutions. Quality, practicality and reliability in every package.",
+    "productNames": {
+      "babyFit": "Baby Fit Wet Wipes",
+      "perfecto": "Perfecto Wet Wipes",
+      "universal": "Universal Wet Wipes",
+      "disinfect": "Desinfect Wet Wipes",
+      "wet": "Wet",
+      "eko": "Eko baby wipes"
+    },
+    "productDescriptions": {
+      "babyFit": "Wet wipes for babies",
+      "perfecto": "Wet wipes for household",
+      "universal": "Wet wipes for the whole family",
+      "disinfect": "Wet wipes for disinfection",
+      "wet": "Pocket hygiene wet wipes",
+      "eko": "Eco baby wet wipes"
+    },
+    "modalContent": {
+      "babyFit": "Baby Fit wet wipes keep your baby's skin soft and fresh. They gently clean and care for every diaper change. Soft and full, alcohol-free, pH neutral and enriched with vitamin E. Perfect for gentle cleaning of baby's skin without water. The whole family can use them.",
+      "perfecto": "Perfecto Fit Universal wet wipes remove dirt from all smooth surfaces (furniture and laminated surfaces, tiles and laminates, ceramics, wall tiles, plastic), while Perfecto Fit Wood Surface are used to remove dirt from wooden furniture and wood-like materials with oil for their care, giving them shine.",
+      "universal": "Universal Fit and Family Fit wet wipes in family packaging are designed for hand and face hygiene. Soft, refreshing, pH neutral and non-allergenic. Ideal for cleaning without water.",
+      "disinfect": "Disinfect Fit Antibacterial wet wipes are designed for disinfection of skin and objects. For external use only. Pocket packaging allows you to carry them everywhere with you.",
+      "wet": "Wet wet wipes without alcohol are specially designed to clean, care for and refresh the skin. Pocket packaging allows you to carry them everywhere with you. Ideal for the whole family.",
+      "eko": "They gently clean baby's skin in a natural way. They contain biodegradable fabric and ingredients from renewable sources. Soft and full, alcohol-free, maintain natural skin pH and are non-allergenic. The whole family can use them."
+    },
+    "modalLabels": {
+      "babyFit": {
+        "label1": "For daily care",
+        "label2": "Ultra gentle",
+        "label3": "For sensitive baby skin"
+      },
+      "perfecto": {
+        "label1": "Easy to clean",
+        "label2": "Shine and protection",
+        "label3": "Universal"
+      },
+      "universal": {
+        "label1": "Family",
+        "label2": "Universal",
+        "label3": "For every day"
+      },
+      "disinfect": {
+        "label1": "Antibacterial",
+        "label2": "Multi-purpose",
+        "label3": "Pocket"
+      },
+      "wet": {
+        "label1": "For every day",
+        "label2": "Multi-purpose",
+        "label3": "Pocket"
+      },
+      "eko": {
+        "label1": "Natural",
+        "label2": "For babies",
+        "label3": "Ultra gentle"
+      }
+    }
+  },
+  "services": {
+    "title": "Contract Manufacturing",
+    "description": "We specialize in private label wet wipes production, collaborating with leading retail chains and partners throughout the country and region. We provide complete and reliable service - from formula development to delivery of finished product - while respecting the highest quality standards and flexibility tailored to your needs."
+  },
+  "certification": {
+    "quality": "30 Years of Tradition",
+    "innovation": "Certified Production",
+    "sustainability": "Customer Dedication",
+    "descriptions": {
+      "quality": "More than two decades of experience and dedication to quality confirm our place in the market.",
+      "innovation": "Our products are created under controlled conditions, respecting the highest quality and safety standards.",
+      "sustainability": "Our philosophy is based on listening to your needs and continuously improving our products and services."
+    }
+  },
+  "contact": {
+    "title": "Contact",
+    "subtitle": "For all questions, contact us via email, phone or at our address"
+  },
+  "footer": {
+    "description": "Your reliable partner in the production of quality wet wipes, committed to safety, quality and affordability.",
+    "quickLinks": "Quick Links",
+    "contactInfo": "Contact Us",
+    "termsOfUse": "Terms of Use",
+    "privacyPolicy": "Privacy Policy",
+    "copyright": "Copyright © 2025 Markus Co. All rights reserved."
+  },
+  "buttons": {
+    "details": "Details",
+    "close": "Close"
+  },
+  "packaging": "Packaging"
+}

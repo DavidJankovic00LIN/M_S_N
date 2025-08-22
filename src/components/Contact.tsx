@@ -1,5 +1,8 @@
+'use client';
+
 import Image from 'next/image';
 import FadeInWhenVisible from './FadeInWhenVisible';
+import { useLanguage } from '../context/LanguageContext';
 
 interface ContactItem {
   id: number;
@@ -8,6 +11,7 @@ interface ContactItem {
 }
 
 export default function Contact() {
+  const { t } = useLanguage();
   const contactItems: ContactItem[] = [
     {
       id: 1,
@@ -46,7 +50,7 @@ export default function Contact() {
           <div className="text-center my-8">
             <FadeInWhenVisible animation="fadeUp" delay={0.2}>
               <h2 className="text-4xl font-bold text-[#2e3455] font-[Nunito] mb-2">
-                Kontakt
+                {t('contact.title')}
               </h2>
             </FadeInWhenVisible>
             <FadeInWhenVisible animation="fadeUp" delay={0.4}>
@@ -60,7 +64,7 @@ export default function Contact() {
             <div>
               <FadeInWhenVisible animation="fadeUp" delay={0.6}>
                 <h2 className="text-xl text-center mb-10 font-[Nunito] text-[#1f2239]">
-                  Za sva pitanja kontaktirajte nas putem elektronske pošte, telefona ili na našoj adresi
+                  {t('contact.subtitle')}
                 </h2>
               </FadeInWhenVisible>
             </div>
