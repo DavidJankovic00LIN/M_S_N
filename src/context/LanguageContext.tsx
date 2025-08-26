@@ -7,7 +7,7 @@ type Language = 'sr' | 'en';
 
 // Interface za prevode
 interface Translations {
-  [key: string]: any;
+  [key: string]: string | Translations;
 }
 
 // Interface za Context
@@ -55,7 +55,7 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
   // Funkcija za prevod
   const t = (key: string): string => {
     const keys = key.split('.');
-    let value: any = translations;
+    let value: string | Translations = translations;
     
     for (const k of keys) {
       if (value && typeof value === 'object' && k in value) {
