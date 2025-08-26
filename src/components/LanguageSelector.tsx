@@ -9,8 +9,8 @@ export default function LanguageSelector() {
   const { currentLanguage, changeLanguage } = useLanguage();
 
   const languages = [
-    { code: 'sr', name: 'Srpski', flag: '🇷🇸', native: 'Српски' },
-    { code: 'en', name: 'English', flag: '🇬🇧', native: 'English' }
+    { code: 'sr',  flag: 'RS' },
+    { code: 'en',  flag: 'ENG' }
   ];
 
   const currentLanguageData = languages.find(lang => lang.code === currentLanguage);
@@ -39,9 +39,6 @@ export default function LanguageSelector() {
         className="flex items-center space-x-2 px-3 py-2 rounded-lg border border-gray-200 hover:border-gray-300 transition-all duration-200 hover:bg-gray-50"
       >
         <span className="text-lg">{currentLanguageData?.flag}</span>
-        <span className="text-sm font-medium text-[#1f2239] hidden sm:block">
-          {currentLanguageData?.native}
-        </span>
         <svg
           className={`w-4 h-4 transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`}
           fill="none"
@@ -62,7 +59,7 @@ export default function LanguageSelector() {
           {languages.map((lang) => (
             <button
               key={lang.code}
-                             onClick={() => handleLanguageChange(lang.code as 'sr' | 'en')}
+              onClick={() => handleLanguageChange(lang.code as 'sr' | 'en')}
               className={`w-full px-4 py-3 text-left hover:bg-gray-50 transition-colors flex items-center space-x-3 ${
                 lang.code === currentLanguage
                   ? 'bg-gray-50 text-[#c19d5f]'
@@ -70,10 +67,6 @@ export default function LanguageSelector() {
               }`}
             >
               <span className="text-lg">{lang.flag}</span>
-              <div className="flex flex-col">
-                <span className="font-medium">{lang.name}</span>
-                <span className="text-sm text-gray-500">{lang.native}</span>
-              </div>
               {lang.code === currentLanguage && (
                 <svg
                   className="w-4 h-4 ml-auto text-[#c19d5f]"
