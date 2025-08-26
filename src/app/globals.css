@@ -19,6 +19,11 @@ html, body {
   font-family: "Nunito", sans-serif;
 }
 
+/* Smooth scroll behavior */
+html {
+  scroll-behavior: smooth;
+}
+
 h1, h2, h3, h4, h5, p, span, a, li, .button {
   font-family: "Nunito", sans-serif;
   font-weight: 400;
