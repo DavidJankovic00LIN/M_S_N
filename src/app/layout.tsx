@@ -30,7 +30,21 @@ export default function RootLayout({
   return (
     <html lang="sr">
       <head>
-        <link rel="shortcut icon" href="/icon.ico" />
+        {/* Favicon */}
+        <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="shortcut icon" href="/favicon.ico" />
+        
+        {/* Apple Touch Icon */}
+        <link rel="apple-touch-icon" sizes="180x180" href="/assets/markus-logo.png" />
+        
+        {/* Android Icons */}
+        <link rel="icon" type="image/png" sizes="32x32" href="/assets/markus-logo.png" />
+        <link rel="icon" type="image/png" sizes="16x16" href="/assets/markus-logo.png" />
+        
+        {/* Microsoft Tiles */}
+        <meta name="msapplication-TileColor" content="#c19d5f" />
+        <meta name="theme-color" content="#c19d5f" />
+        
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
       </head>

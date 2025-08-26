@@ -1,13 +1,11 @@
 'use client';
 
 import Image from 'next/image';
-import { usePathname } from 'next/navigation';
 import { useState, useEffect, useRef, useCallback } from 'react';
 import LanguageSelector from './LanguageSelector';
 import { useLanguage } from '../context/LanguageContext';
 
 export default function Navigation() {
-  const pathname = usePathname();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
@@ -111,17 +109,10 @@ export default function Navigation() {
     { href: '#kontakt', label: t('nav.contact') },
   ];
 
-  // Determine if navigation should be hidden (after hooks are declared)
-  const hideNav = pathname === '/uslovi-koriscenja' || pathname === '/politika-privatnosti';
-
-  if (hideNav) {
-    return null;
-  }
-
   return (
     <>
       {/* Desktop navbar - sticky */}
-      <nav className="hidden sm:flex fixed top-0 left-0 right-0 bg-white shadow-lg w-full z-50 border-b border-gray-100 relative">
+      <nav className="hidden sm:block fixed top-0 left-0 right-0 bg-white shadow-lg w-full z-50 border-b border-gray-100">
         {/* Language selector - top right (desktop) pinned to nav edges */}
         <div className="absolute right-3 top-1/2 -translate-y-1/2 z-50">
           <LanguageSelector />
@@ -155,8 +146,8 @@ export default function Navigation() {
           <Image
             src="/assets/markus_logo.png"
             alt="Markus Logo"
-            width={180}
-            height={48}
+            width={135}
+            height={36}
             className="h-12 w-auto"
             style={{ width: 'auto', height: 'auto' }}
           />
