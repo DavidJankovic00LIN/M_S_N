@@ -60,38 +60,38 @@ function ProductModal({ isOpen, onClose, title, content, modalImage, modalSertif
                            <h3 className="text-xl font-bold text-[#2e3455] mb-4 font-[Nunito]">{title}</h3>
               <p className="text-[#1f2239] leading-relaxed mb-6 font-[Nunito]">{content}</p>
              
-                                                       <div className="flex justify-center space-x-4 mb-4">
-                 <div className="text-center">
+                                                       <div className="flex justify-center space-x-8 mb-6">
+                 <div className="text-center flex flex-col items-center">
                    <Image
                      src={`/${modalSertificate1}`}
                      alt="Sertifikat 1"
                      width={80}
                      height={80}
-                     className="w-16 h-16 mb-2"
+                     className="w-16 h-16 mb-3"
                    />
-                                       <span className="text-xs text-[#2e3455] font-medium font-[Nunito] block">{modalLabel1}</span>
+                                       <span className="text-xs text-[#2e3455] font-medium font-[Nunito] text-center leading-tight">{modalLabel1}</span>
                  </div>
                  
-                 <div className="text-center">
+                 <div className="text-center flex flex-col items-center">
                    <Image
                      src={`/${modalSertificate2}`}
                      alt="Sertifikat 2"
                      width={80}
                      height={80}
-                     className="w-16 h-16 mb-2"
+                     className="w-16 h-16 mb-3"
                    />
-                                       <span className="text-xs text-[#2e3455] font-medium font-[Nunito] block">{modalLabel2}</span>
+                                       <span className="text-xs text-[#2e3455] font-medium font-[Nunito] text-center leading-tight">{modalLabel2}</span>
                  </div>
                  
-                 <div className="text-center">
+                 <div className="text-center flex flex-col items-center">
                    <Image
                      src={`/${modalSertificate3}`}
                      alt="Sertifikat 3"
                      width={80}
                      height={80}
-                     className="w-16 h-16 mb-2"
+                     className="w-16 h-16 mb-3"
                    />
-                                       <span className="text-xs text-[#2e3455] font-medium font-[Nunito] block">{modalLabel3}</span>
+                                       <span className="text-xs text-[#2e3455] font-medium font-[Nunito] text-center leading-tight">{modalLabel3}</span>
                  </div>
                </div>
              

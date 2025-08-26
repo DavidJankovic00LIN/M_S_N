@@ -28,7 +28,7 @@ export default function Certification() {
            },
            {
              id: 3,
-             image: '/assets/ikonica_3.jpg',
+             image: '/assets/ikonica_3.png',
              title: t('certification.sustainability'),
              description: t('certification.descriptions.sustainability')
            }

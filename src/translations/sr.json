@@ -12,7 +12,7 @@
   },
   "about": {
     "title": "O nama",
-    "description": "Kompanija Milica je lider u proizvodnji vlažnih maramica i higijenskih proizvoda. Sa više od 30 godina iskustva, posvećeni smo kvalitetu i inovacijama koje čine svakodnevni život naših kupaca lakšim i zdravijim."
+    "description": " Markus Co je porodična firma iz Valjeva, osnovana 1994. godine, sa jasnom misijom da potrošačima obezbedi kvalitetne i pristupačne proizvode za ličnu higijenu. Sa savremenom opremom i posvećenim timom, razvijamo sopstvene brendove i uspešno sarađujemo sa domaćim i inostranim partnerima, gradeći poverenje kroz kvalitet, odgovornost i inovacije."
   },
   "products": {
     "title": "Naši proizvodi",
@@ -45,7 +45,7 @@
       "babyFit": {
         "label1": "Za svakodnevnu negu",
         "label2": "Ultra nežne",
-        "label3": "Za osetljivu kožu bebe"
+        "label3": "Za bebe"
       },
       "perfecto": {
         "label1": "Lako za čišćenje",
@@ -84,7 +84,7 @@
     "innovation": "Sertifikovana proizvodnja",
     "sustainability": "Posvećenost kupcima",
     "descriptions": {
-      "quality": "Više od dve decenije iskustva i posvećenosti kvalitetu potvrđuju naše mesto na tržištu.",
+      "quality": "Više od tri decenije iskustva i posvećenosti kvalitetu potvrđuju naše mesto na tržištu.",
       "innovation": "Naši proizvodi nastaju u kontrolisanim uslovima, uz poštovanje najviših standarda kvaliteta i bezbednosti.",
       "sustainability": "Naša filozofija temelji se na slušanju vaših potreba i neprekidnom unapređenju naših proizvoda i usluga."
     }
