@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import ParallaxProviderWrapper from '@/components/ParallaxProvider';
 import { LanguageProvider } from '@/context/LanguageContext';
@@ -15,7 +15,11 @@ export const metadata: Metadata = {
     url: "www.markus.rs",
     type: "website",
   },
-  viewport: "width=device-width, initial-scale=1.0",
+};
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
 };
 
 export default function RootLayout({

@@ -1,11 +1,13 @@
 'use client';
 
 import Image from 'next/image';
+import { usePathname } from 'next/navigation';
 import { useState, useEffect, useRef, useCallback } from 'react';
 import LanguageSelector from './LanguageSelector';
 import { useLanguage } from '../context/LanguageContext';
 
 export default function Navigation() {
+  const pathname = usePathname();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
@@ -109,10 +111,21 @@ export default function Navigation() {
     { href: '#kontakt', label: t('nav.contact') },
   ];
 
+  // Determine if navigation should be hidden (after hooks are declared)
+  const hideNav = pathname === '/uslovi-koriscenja' || pathname === '/politika-privatnosti';
+
+  if (hideNav) {
+    return null;
+  }
+
   return (
     <>
       {/* Desktop navbar - sticky */}
-      <nav className="hidden sm:block fixed top-0 left-0 right-0 bg-white shadow-lg w-full z-50 border-b border-gray-100">
+      <nav className="hidden sm:flex fixed top-0 left-0 right-0 bg-white shadow-lg w-full z-50 border-b border-gray-100 relative">
+        {/* Language selector - top right (desktop) pinned to nav edges */}
+        <div className="absolute right-3 top-1/2 -translate-y-1/2 z-50">
+          <LanguageSelector />
+        </div>
         <div className="max-w-22xl mx-auto flex flex-row items-center justify-center space-x-12 py-4 px-4 sm:px-0 sm:pl-18">
           {/* Levi linkovi */}
           <div className="flex items-center space-x-12">
@@ -145,6 +158,7 @@ export default function Navigation() {
             width={180}
             height={48}
             className="h-12 w-auto"
+            style={{ width: 'auto', height: 'auto' }}
           />
 
           {/* Desni linkovi */}
@@ -169,17 +183,18 @@ export default function Navigation() {
                 activeSection === 'kontakt' ? 'w-full' : 'w-0 group-hover:w-full'
               }`}></div>
             </a>
-            
-            {/* Jezički selector */}
-            <LanguageSelector />
           </div>
         </div>
       </nav>
 
       {/* Mobile navbar - hidden/show on scroll */}
-      <nav className={`sm:hidden fixed top-0 left-0 right-0 bg-white shadow-lg w-full z-50 border-b border-gray-100 transition-transform duration-300 ${
+      <nav className={`block sm:hidden fixed top-0 left-0 right-0 bg-white shadow-lg w-full z-50 border-b border-gray-100 transition-transform duration-300 relative ${
         isVisible ? 'translate-y-0' : '-translate-y-full'
       }`}>
+        {/* Language selector - top right (mobile) pinned to nav edges */}
+        <div className="absolute top-2 right-3 z-50">
+          <LanguageSelector />
+        </div>
         <div className="max-w-22xl mx-auto flex flex-col items-center justify-center space-y-1 py-4 px-4">
           {/* Logo + dropdown meni */}
           <div className="flex flex-col items-center justify-center space-y-[4px]">

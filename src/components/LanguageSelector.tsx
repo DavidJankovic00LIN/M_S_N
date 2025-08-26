@@ -36,9 +36,9 @@ export default function LanguageSelector() {
     <div className="relative" ref={dropdownRef}>
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="flex items-center space-x-2 px-3 py-2 rounded-lg border border-gray-200 hover:border-gray-300 transition-all duration-200 hover:bg-gray-50"
+        className="flex items-center space-x-2 px-2 py-1 sm:px-3 sm:py-2 rounded-lg border border-gray-200 hover:border-gray-300 transition-all duration-200 hover:bg-gray-50 text-sm sm:text-base"
       >
-        <span className="text-lg">{currentLanguageData?.flag}</span>
+        <span className="text-base sm:text-lg">{currentLanguageData?.flag}</span>
         <svg
           className={`w-4 h-4 transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`}
           fill="none"
@@ -55,21 +55,21 @@ export default function LanguageSelector() {
       </button>
 
       {isOpen && (
-        <div className="absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-lg border border-gray-200 py-2 z-50">
+        <div className="absolute right-0 mt-2 w-28 sm:w-40 bg-white rounded-lg shadow-lg border border-gray-200 py-1 sm:py-2 z-50">
           {languages.map((lang) => (
             <button
               key={lang.code}
               onClick={() => handleLanguageChange(lang.code as 'sr' | 'en')}
-              className={`w-full px-4 py-3 text-left hover:bg-gray-50 transition-colors flex items-center space-x-3 ${
+              className={`w-full px-3 py-2 sm:px-4 sm:py-3 text-left hover:bg-gray-50 transition-colors flex items-center space-x-3 ${
                 lang.code === currentLanguage
                   ? 'bg-gray-50 text-[#c19d5f]'
                   : 'text-[#1f2239]'
               }`}
             >
-              <span className="text-lg">{lang.flag}</span>
+              <span className="text-base sm:text-lg">{lang.flag}</span>
               {lang.code === currentLanguage && (
                 <svg
-                  className="w-4 h-4 ml-auto text-[#c19d5f]"
+                  className="w-3 h-3 sm:w-4 sm:h-4 ml-auto text-[#c19d5f]"
                   fill="currentColor"
                   viewBox="0 0 20 20"
                 >
