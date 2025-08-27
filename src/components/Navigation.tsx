@@ -1,6 +1,7 @@
 'use client';
 
 import Image from 'next/image';
+import Link from 'next/link';
 import { useState, useEffect, useRef, useCallback } from 'react';
 import LanguageSelector from './LanguageSelector';
 import { useLanguage } from '../context/LanguageContext';
@@ -120,7 +121,7 @@ export default function Navigation() {
         <div className="max-w-22xl mx-auto flex flex-row items-center justify-center space-x-12 py-4 px-4 sm:px-0 sm:pl-18">
           {/* Levi linkovi */}
           <div className="flex items-center space-x-12">
-                         <a href="#o_nama" className={`relative text-sm font-medium transition-all duration-300 font-[Nunito] group ${
+                         <Link href="/#o_nama" className={`relative text-sm font-medium transition-all duration-300 font-[Nunito] group ${
                activeSection === 'o_nama' 
                  ? 'text-[#c19d5f]' 
                  : 'text-[#1f2239] hover:text-[#c19d5f]'
@@ -129,9 +130,9 @@ export default function Navigation() {
               <div className={`absolute bottom-0 left-0 h-0.5 bg-[#c19d5f] transition-all duration-300 ${
                 activeSection === 'o_nama' ? 'w-full' : 'w-0 group-hover:w-full'
               }`}></div>
-            </a>
-                         <a href="#Proizvodi" className={`relative text-sm font-medium transition-all duration-300 font-[Nunito] group ${
-               activeSection === 'Proizvodi' 
+            </Link>
+                         <Link href="/#Proizvodi" className={`relative text-sm font-medium transition-all duration-300 font-[Nunito] group ${
+               activeSection === 'Proizvod' 
                  ? 'text-[#c19d5f]' 
                  : 'text-[#1f2239] hover:text-[#c19d5f]'
              }`}>
@@ -139,7 +140,7 @@ export default function Navigation() {
               <div className={`absolute bottom-0 left-0 h-0.5 bg-[#c19d5f] transition-all duration-300 ${
                 activeSection === 'Proizvodi' ? 'w-full' : 'w-0 group-hover:w-full'
               }`}></div>
-            </a>
+            </Link>
           </div>
 
           {/* Logo */}
@@ -154,7 +155,7 @@ export default function Navigation() {
 
           {/* Desni linkovi */}
           <div className="flex items-center space-x-12">
-                         <a href="#usluzna_proizvodnja" className={`relative text-sm font-medium transition-all duration-300 font-[Nunito] group ${
+                         <Link href="/#usluzna_proizvodnja" className={`relative text-sm font-medium transition-all duration-300 font-[Nunito] group ${
                activeSection === 'usluzna_proizvodnja' 
                  ? 'text-[#c19d5f]' 
                  : 'text-[#1f2239] hover:text-[#c19d5f]'
@@ -163,8 +164,8 @@ export default function Navigation() {
               <div className={`absolute bottom-0 left-0 h-0.5 bg-[#c19d5f] transition-all duration-300 ${
                 activeSection === 'usluzna_proizvodnja' ? 'w-full' : 'w-0 group-hover:w-full'
               }`}></div>
-            </a>
-                         <a href="#kontakt" className={`relative text-sm font-medium transition-all duration-300 font-[Nunito] group ${
+            </Link>
+                         <Link href="/#kontakt" className={`relative text-sm font-medium transition-all duration-300 font-[Nunito] group ${
                activeSection === 'kontakt' 
                  ? 'text-[#c19d5f]' 
                  : 'text-[#1f2239] hover:text-[#c19d5f]'
@@ -173,7 +174,7 @@ export default function Navigation() {
               <div className={`absolute bottom-0 left-0 h-0.5 bg-[#c19d5f] transition-all duration-300 ${
                 activeSection === 'kontakt' ? 'w-full' : 'w-0 group-hover:w-full'
               }`}></div>
-            </a>
+            </Link>
           </div>
         </div>
       </nav>

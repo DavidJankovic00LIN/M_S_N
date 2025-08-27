@@ -5,7 +5,7 @@ import Link from 'next/link';
 export default function PrivacyPolicy() {
 
   return (
-    <div className="max-w-4xl mx-auto px-4 py-12">
+    <div className="max-w-4xl mx-auto px-4 py-12" style={{ paddingTop: '200px' }}>
       <div className="text-center mb-12">
         <h1 className="text-4xl font-bold text-gray-800 mb-2 font-[Inter]">
           Politika privatnosti
