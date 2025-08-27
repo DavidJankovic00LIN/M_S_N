@@ -1,96 +1,98 @@
 'use client';
 
 import Link from 'next/link';
+import { useLanguage } from '../context/LanguageContext';
 
 export default function TermsAndConditions() {
+  const { t } = useLanguage();
 
   return (
-    <div className="max-w-4xl mx-auto px-4 py-12" style={{ paddingTop: '200px' }}>
+    <div className="max-w-4xl mx-auto px-4 py-12 bg-white pb-20" style={{ paddingTop: '200px' }}>
       <div className="text-center mb-12">
         <h1 className="text-4xl font-bold text-gray-800 mb-2 font-[Inter]">
-          Uslovi korišćenja
+          {t('terms.title')}
         </h1>
         <p className="text-lg text-gray-600 font-[Inter]">
-          Markus Co d.o.o. Valjevo
+          {t('terms.subtitle')}
         </p>
         <div className="mt-2 w-24 h-1 mx-auto bg-[#d2b277] rounded"></div>
       </div>
 
       <section className="mb-8">
         <h2 className="text-2xl font-semibold mb-4 text-[#d2b277] font-[Inter]">
-          1. Opšte odredbe
+          {t('terms.sections.1.title')}
         </h2>
         <p className="mb-4 text-gray-700 font-[Inter]">
-          Ovi Uslovi korišćenja definišu pravila upotrebe sajta{' '}
-          <span className="text-[#d2b277] font-bold">www.markus.rs</span>. Vlasnik sajta je Markus Co d.o.o. Valjevo, Karađorđeva 123. Kontakt:{' '}
-          <span className="text-[#d2b277] font-bold">office@markus.rs</span>, telefon{' '}
-          <span className="text-[#d2b277] font-bold">+381 63 222 333</span>.
+          {t('terms.sections.1.body')}
         </p>
       </section>
 
       <section className="mb-8">
         <h2 className="text-2xl font-semibold mb-4 text-[#d2b277] font-[Inter]">
-          2. Opis usluge
+          {t('terms.sections.2.title')}
         </h2>
         <p className="mb-4 text-gray-700 font-[Inter]">
-          Sajt omogućava korisnicima informacije o našim proizvodima i uslugama, uključujući uslužnu proizvodnju privatnih robnih marki i asortiman vlažnih maramica. Markus Co zadržava pravo izmene ili ukidanja delova sajta bez prethodne najave.
+          {t('terms.sections.2.body')}
         </p>
       </section>
 
       <section className="mb-8">
         <h2 className="text-2xl font-semibold mb-4 text-[#d2b277] font-[Inter]">
-          3. Prava intelektualne svojine
+          {t('terms.sections.3.title')}
         </h2>
         <p className="mb-4 text-gray-700 font-[Inter]">
-          Svi sadržaji na sajtu (tekstovi, slike, grafike, logo) su vlasništvo Markus Co d.o.o. ili se koriste uz dozvolu. Zabranjeno je kopiranje, distribucija ili bilo kakva upotreba bez prethodne saglasnosti.
+          {t('terms.sections.3.body')}
         </p>
       </section>
 
       <section className="mb-8">
         <h2 className="text-2xl font-semibold mb-4 text-[#d2b277] font-[Inter]">
-          4. Korišćenje sajta
+          {t('terms.sections.4.title')}
         </h2>
         <p className="mb-4 text-gray-700 font-[Inter]">
-          Korisnici se obavezuju da sajt neće koristiti za nezakonite radnje ili aktivnosti suprotne ovim uslovima. Zabranjeno je postavljanje uvredljivog ili nezakonitog sadržaja, pokušaj neovlašćenog pristupa, lažno predstavljanje ili slanje neželjenih poruka.
+          {t('terms.sections.4.body')}
         </p>
       </section>
 
       <section className="mb-8">
         <h2 className="text-2xl font-semibold mb-4 text-[#d2b277] font-[Inter]">
-          5. Ograničenje odgovornosti
+          {t('terms.sections.5.title')}
         </h2>
         <p className="mb-4 text-gray-700 font-[Inter]">
-          Markus Co ne garantuje potpunu dostupnost i ispravnost sajta u svakom trenutku. Ne preuzimamo odgovornost za eventualne štete nastale korišćenjem informacija sa sajta ili prekidom dostupnosti.
+          {t('terms.sections.5.body')}
         </p>
       </section>
 
       <section className="mb-8">
         <h2 className="text-2xl font-semibold mb-4 text-[#d2b277] font-[Inter]">
-          6. Politika privatnosti
+          {t('terms.sections.6.title')}
         </h2>
         <p className="mb-4 text-gray-700 font-[Inter]">
-          Više informacija o načinu prikupljanja i obrade podataka možete pročitati u našoj{' '}
+          {t('terms.sections.6.body')}
           <Link href="/politika-privatnosti" className="text-[#d2b277] underline font-[Inter] hover:text-[#c19a5d] transition-colors">
-            Politici privatnosti
+            {t('terms.sections.6.link')}
           </Link>.
         </p>
       </section>
 
       <section className="mb-8">
         <h2 className="text-2xl font-semibold mb-4 text-[#d2b277] font-[Inter]">
-          7. Izmene uslova
+          {t('terms.sections.7.title')}
         </h2>
         <p className="mb-4 text-gray-700 font-[Inter]">
-          Markus Co zadržava pravo izmene ovih uslova korišćenja u bilo kom trenutku. Izmene stupaju na snagu objavljivanjem na sajtu. Korišćenjem sajta nakon promena, korisnik prihvata nove uslove.
+          {t('terms.sections.7.body')}
         </p>
       </section>
 
       <section className="mb-8">
         <h2 className="text-2xl font-semibold mb-4 text-[#d2b277] font-[Inter]">
-          8. Važeće pravo i nadležnost
+          {t('terms.sections.8.title')}
         </h2>
         <p className="mb-4 text-gray-700 font-[Inter]">
-          Ovi uslovi se tumače u skladu sa zakonima Republike Srbije. Za sve sporove nadležan je sud prema sedištu Markus Co d.o.o.
+          {t('terms.sections.8.body1')}
+        </p>
+        <p className="mb-4 text-gray-700 font-[Inter]">
+          {t('terms.sections.8.body2')}
         </p>
       </section>
 
@@ -99,7 +101,7 @@ export default function TermsAndConditions() {
           href="/" 
           className="inline-block bg-[#d2b277] text-white px-6 py-2 rounded font-[Inter] hover:bg-[#c19a5d] transition-colors"
         >
-          Nazad na sajt
+          {t('terms.back')}
         </Link>
       </div>
     </div>

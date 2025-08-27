@@ -108,5 +108,61 @@
     "details": "Detalji",
     "close": "Zatvori"
   },
-  "packaging": "Pakovanje"
+  "packaging": "Pakovanje",
+  "terms": {
+    "title": "Uslovi korišćenja",
+    "subtitle": "Markus Co d.o.o. Valjevo",
+    "back": "Nazad na sajt",
+    "sections": {
+      "1": {
+        "title": "1. Opšte odredbe",
+        "body": "Ovi Uslovi korišćenja definišu pravila upotrebe sajta www.markus.rs. Vlasnik sajta je Markus Co d.o.o. Valjevo, Karađorđeva 123. Kontakt: office@markus.rs, telefon +381 63 222 333."
+      },
+      "2": {
+        "title": "2. Opis usluge",
+        "body": "Sajt omogućava informacije o našim proizvodima i uslugama, uključujući uslužnu proizvodnju privatnih robnih marki i asortiman vlažnih maramica. Markus Co zadržava pravo izmene ili ukidanja delova sajta bez prethodne najave."
+      },
+      "3": {
+        "title": "3. Prava intelektualne svojine",
+        "body": "Svi sadržaji na sajtu (tekstovi, slike, grafike, logo) su vlasništvo Markus Co d.o.o. ili se koriste uz dozvolu. Zabranjeno je kopiranje, distribucija ili bilo kakva upotreba bez prethodne saglasnosti."
+      },
+      "4": {
+        "title": "4. Korišćenje sajta",
+        "body": "Korisnici se obavezuju da sajt neće koristiti za nezakonite radnje ili aktivnosti suprotne ovim uslovima. Zabranjeno je postavljanje uvredljivog ili nezakonitog sadržaja, pokušaj neovlašćenog pristupa, lažno predstavljanje ili slanje neželjenih poruka."
+      },
+      "5": {
+        "title": "5. Ograničenje odgovornosti",
+        "body": "Markus Co ne garantuje potpunu dostupnost i ispravnost sajta u svakom trenutku. Ne preuzimamo odgovornost za eventualne štete nastale korišćenjem informacija sa sajta ili prekidom dostupnosti."
+      },
+      "6": {
+        "title": "6. Politika privatnosti",
+        "body": "Više informacija o načinu prikupljanja i obrade podataka možete pročitati u našoj ",
+        "link": "Politici privatnosti"
+      },
+      "7": {
+        "title": "7. Izmene uslova",
+        "body": "Markus Co zadržava pravo izmene ovih uslova korišćenja u bilo kom trenutku. Izmene stupaju na snagu objavljivanjem na sajtu. Korišćenjem sajta nakon promena, korisnik prihvata nove uslove."
+      },
+      "8": {
+        "title": "8. Važeće pravo i nadležnost",
+        "body1": "Ovi uslovi se tumače u skladu sa zakonima Republike Srbije. Za sve sporove nadležan je sud prema sedištu Markus Co d.o.o.",
+        "body2": "U slučaju da bilo koja odredba ovih Uslova bude proglašena ništavnom, to ne utiče na valjanost ostalih odredbi. Strane će sporove pokušati da reše mirnim putem; u suprotnom je nadležan stvarno nadležni sud u Republici Srbiji."
+      }
+    }
+  },
+  "privacy": {
+    "title": "Politika privatnosti",
+    "subtitle": "Markus Co d.o.o. Valjevo",
+    "back": "Nazad na sajt",
+    "sections": {
+      "1": {"title": "1. Opšte informacije", "body": "Markus Co d.o.o., sa sedištem Karađorđeva 123, Valjevo, posvećen je zaštiti privatnosti korisnika. Ova politika objašnjava koje podatke prikupljamo, kako ih koristimo i kako štitimo vašu privatnost."},
+      "2": {"title": "2. Vrste prikupljenih podataka", "body": "Prikupljamo podatke neophodne za pružanje usluga (ime, email, telefon, IP adresa) i koristimo kolačiće radi unaprđenja funkcionalnosti i korisničkog iskustva."},
+      "3": {"title": "3. Svrha obrade podataka", "body": "Podatke koristimo radi komunikacije, obrade upita, realizacije uslužne proizvodnje privatnih robnih marki i unapređenja ponude."},
+      "4": {"title": "4. Deljenje podataka", "body": "Podaci se ne prodaju niti dele trećim stranama, osim kada je to zakonski obavezno ili neophodno za izvršavanje usluga (npr. isporuka robe)."},
+      "5": {"title": "5. Sigurnost podataka", "body": "Primenujemo tehničke i organizacione mere zaštite od neovlašćenog pristupa, gubitka ili zloupotrebe."},
+      "6": {"title": "6. Prava korisnika", "body": "Imate pravo na pristup, ispravku, brisanje, ograničenje obrade ili prigovor. Kontakt: office@markus.rs ili +381 63 222 333."},
+      "7": {"title": "7. Kolačići", "body": "Sajt koristi kolačiće radi poboljšanja funkcionalnosti i analize posećenosti. Korišćenjem sajta pristajete na upotrebu kolačića."},
+      "8": {"title": "8. Izmene politike privatnosti", "body": "Politika se povremeno ažurira. Sve izmene biće objavljene na ovoj stranici; daljim korišćenjem sajta pristajete na nove uslove."}
+    }
+  }
 }

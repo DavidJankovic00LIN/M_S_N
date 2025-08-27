@@ -104,5 +104,61 @@
     "details": "Details",
     "close": "Close"
   },
-  "packaging": "Packaging"
+  "packaging": "Packaging",
+  "terms": {
+    "title": "Terms of Use",
+    "subtitle": "Markus Co d.o.o. Valjevo",
+    "back": "Back to site",
+    "sections": {
+      "1": {
+        "title": "1. General Provisions",
+        "body": "These Terms of Use define the rules for using the www.markus.rs website. The site owner is Markus Co d.o.o. Valjevo, Karađorđeva 123. Contact: office@markus.rs, phone +381 63 222 333."
+      },
+      "2": {
+        "title": "2. Service Description",
+        "body": "The website provides information about our products and services, including private label contract manufacturing and the range of wet wipes. Markus Co reserves the right to modify or remove parts of the site without prior notice."
+      },
+      "3": {
+        "title": "3. Intellectual Property",
+        "body": "All content on the site (texts, images, graphics, logo) is owned by Markus Co d.o.o. or used with permission. Copying, distribution or any use is prohibited without prior consent."
+      },
+      "4": {
+        "title": "4. Use of the Website",
+        "body": "Users agree not to use the site for illegal activities or activities contrary to these terms. It is forbidden to post offensive or illegal content, attempt unauthorized access, impersonate others, or send unsolicited messages."
+      },
+      "5": {
+        "title": "5. Limitation of Liability",
+        "body": "Markus Co does not guarantee full availability or correctness of the website at all times and is not liable for damages resulting from the use of information or interruption of availability."
+      },
+      "6": {
+        "title": "6. Privacy Policy",
+        "body": "More information on data collection and processing can be found in our ",
+        "link": "Privacy Policy"
+      },
+      "7": {
+        "title": "7. Changes to the Terms",
+        "body": "Markus Co reserves the right to change these terms at any time. Changes take effect upon publication on the website. By using the site after changes, the user accepts the new terms."
+      },
+      "8": {
+        "title": "8. Governing Law and Jurisdiction",
+        "body1": "These terms are interpreted in accordance with the laws of the Republic of Serbia. All disputes are subject to the court with jurisdiction over the seat of Markus Co d.o.o.",
+        "body2": "If any provision is found invalid, it shall not affect the validity of the remaining provisions. Parties will attempt to resolve disputes amicably; otherwise, the competent court in the Republic of Serbia shall have jurisdiction."
+      }
+    }
+  },
+  "privacy": {
+    "title": "Privacy Policy",
+    "subtitle": "Markus Co d.o.o. Valjevo",
+    "back": "Back to site",
+    "sections": {
+      "1": {"title": "1. General Information", "body": "Markus Co d.o.o., based at Karađorđeva 123, Valjevo, is committed to protecting users' privacy. This policy explains what data we collect, how we use it, and how we safeguard your privacy."},
+      "2": {"title": "2. Types of Data Collected", "body": "We collect data necessary to provide our services (name, email, phone, IP address) and use cookies to improve functionality and the user experience."},
+      "3": {"title": "3. Purpose of Data Processing", "body": "We use data for communication, handling inquiries, carrying out private label contract manufacturing, and improving our offer."},
+      "4": {"title": "4. Data Sharing", "body": "Your personal data will not be sold or shared with third parties, except when legally required or necessary to execute our services (e.g., delivery via partners)."},
+      "5": {"title": "5. Data Security", "body": "We implement technical and organizational measures to protect your data against unauthorized access, loss, or misuse."},
+      "6": {"title": "6. User Rights", "body": "You have the right to access, rectification, deletion, restriction of processing or objection. Contact: office@markus.rs or +381 63 222 333."},
+      "7": {"title": "7. Cookies", "body": "Our website uses cookies to improve functionality and analyze traffic. By using the site you agree to the use of cookies in accordance with this policy."},
+      "8": {"title": "8. Changes to the Privacy Policy", "body": "We may update this policy from time to time. All changes will be published on this page; by continuing to use the site you agree to the new terms."}
+    }
+  }
 }
