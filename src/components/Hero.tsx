@@ -51,12 +51,12 @@ export default function Hero() {
       <div className="relative pt-24 z-20 flex flex-col items-center justify-center text-center h-full px-4 -mt-12">
         <div className="bg-white/20 p-8 w-[450px] rounded-lg shadow-xl border border-white/20">
           <FadeInWhenVisible animation="fadeUp" delay={0.3}>
-            <h1 className="mb-4 text-[30px] font-bold text-[#2e3455] font-[Nunito]">
+            <h1 className="mb-4 text-[30px] font-black text-[#2e3455] font-[Nunito]" style={{ fontWeight: 700 }}>
               {t('hero.title')}
             </h1>
           </FadeInWhenVisible>
           <FadeInWhenVisible animation="fadeUp" delay={0.6}>
-            <h1 className="mb-6 text-[24px] font-bold text-[#1f2239] font-[Nunito]">
+            <h1 className="mb-6 text-[24px] font-black text-[#1f2239] font-[Nunito]" style={{ fontWeight: 700 }}>
               {t('hero.subtitle')}
             </h1>
           </FadeInWhenVisible>
