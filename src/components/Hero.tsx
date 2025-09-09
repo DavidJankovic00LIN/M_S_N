@@ -11,8 +11,10 @@ export default function Hero() {
   const images = [
     '/assets/1.jpg',
     '/assets/2.jpg',
-    '/assets/pexels-goda-morgan-121487563-9896886.jpg',
-  
+    '/assets/baby_hero_1.jpg',
+    '/assets/baby_hero_2.jpg',
+    '/assets/baby_hero_3.jpg',
+    '/assets/baby_hero_4.jpg',
   ];
 
   useEffect(() => {
