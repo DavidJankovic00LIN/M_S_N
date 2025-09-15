@@ -26,47 +26,44 @@ export default function Hero() {
   }, [images.length]);
 
   return (
-    <div id="hero" className="relative hero min-h-screen w-full overflow-hidden pt-24">
-      {/* Wrapper za pozadine */}
-      <div
-        id="hero-bg-wrapper"
-        className="absolute inset-0 w-full h-full overflow-hidden z-[-1]"
-      >
-        {images.map((image, index) => (
-          <div
-            key={image}
-            className={`hero-slide absolute inset-0 w-full h-full bg-cover bg-center transition-opacity duration-1000 ${
-              index === currentImageIndex
-                ? 'opacity-100 z-10'
-                : 'opacity-0 z-0'
-            }`}
-            style={{
-              backgroundImage: `url('${image}')`,
-            }}
-          />
-        ))}
-      </div>
+    <div id="hero" className="relative min-h-screen w-full overflow-hidden pt-24 bg-gradient-to-br from-[#F8F4F0] via-[#DDD0C8] to-[#B0A89F]">
+      <div className="mx-auto max-w-7xl h-full px-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 items-center min-h-[calc(100vh-6rem)]">
+          {/* Leva kolona: tekst */}
+          <div className="order-2 sm:order-1 flex flex-col justify-center text-center sm:text-left">
+            <FadeInWhenVisible animation="fadeUp" delay={0.2}>
+              <h1 className="mb-4 text-[34px] sm:text-[42px] leading-tight font-black text-[#2e3455] font-[Nunito]" style={{ fontWeight: 700 }}>
+                {t('hero.title')}
+              </h1>
+            </FadeInWhenVisible>
+            <FadeInWhenVisible animation="fadeUp" delay={0.4}>
+              <h2 className="mb-8 text-[22px] sm:text-[26px] font-black text-[#1f2239] font-[Nunito]" style={{ fontWeight: 700 }}>
+                {t('hero.subtitle')}
+              </h2>
+            </FadeInWhenVisible>
+            <FadeInWhenVisible animation="fadeUp" delay={0.6}>
+              <div>
+                <a href="#o_nama">
+                  <button className="px-8 py-4 bg-[#c19d5f] text-white font-semibold rounded-lg hover:bg-[#b08d4f] transition-all duration-300 transform hover:scale-105 shadow-lg font-[Nunito]">
+                    {t('hero.button')}
+                  </button>
+                </a>
+              </div>
+            </FadeInWhenVisible>
+          </div>
 
-      {/* Sadržaj koji uvek ostaje vidljiv */}
-      <div className="relative pt-24 z-20 flex flex-col items-center justify-center text-center h-full px-4 -mt-12">
-        <div className="bg-white/20 p-8 w-[450px] rounded-lg shadow-xl border border-white/20">
-          <FadeInWhenVisible animation="fadeUp" delay={0.3}>
-            <h1 className="mb-4 text-[30px] font-black text-[#2e3455] font-[Nunito]" style={{ fontWeight: 700 }}>
-              {t('hero.title')}
-            </h1>
-          </FadeInWhenVisible>
-          <FadeInWhenVisible animation="fadeUp" delay={0.6}>
-            <h1 className="mb-6 text-[24px] font-black text-[#1f2239] font-[Nunito]" style={{ fontWeight: 700 }}>
-              {t('hero.subtitle')}
-            </h1>
-          </FadeInWhenVisible>
-          <FadeInWhenVisible animation="fadeUp" delay={0.9}>
-            <a href="#o_nama">
-              <button className="px-8 py-4 bg-[#c19d5f] text-white font-semibold rounded-lg hover:bg-[#b08d4f] transition-all duration-300 transform hover:scale-105 shadow-lg font-[Nunito]">
-                {t('hero.button')}
-              </button>
-            </a>
-          </FadeInWhenVisible>
+          {/* Desna kolona: slider sa slikama */}
+          <div className="order-1 sm:order-2 relative w-full h-[40vh] sm:h-[70vh] rounded-xl overflow-hidden shadow-xl">
+            {images.map((image, index) => (
+              <div
+                key={image}
+                className={`absolute inset-0 w-full h-full bg-cover bg-center transition-opacity duration-1000 ${
+                  index === currentImageIndex ? 'opacity-100' : 'opacity-0'
+                }`}
+                style={{ backgroundImage: `url('${image}')` }}
+              />
+            ))}
+          </div>
         </div>
       </div>
     </div>
