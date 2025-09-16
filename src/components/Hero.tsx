@@ -26,7 +26,7 @@ export default function Hero() {
   }, [images.length]);
 
   return (
-    <div id="hero" className="relative min-h-screen w-full overflow-hidden pt-24 bg-gradient-to-br from-[#F8F4F0] via-[#DDD0C8] to-[#B0A89F]">
+    <div id="hero" className="relative min-h-screen w-full overflow-hidden pt-24 bg-gradient-to-br from-[#F6F1EA] via-[#D7E0EA] to-[#b08d4f]">
       <div className="mx-auto max-w-7xl h-full px-4">
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 items-center min-h-[calc(100vh-6rem)]">
           {/* Leva kolona: tekst */}
@@ -53,7 +53,8 @@ export default function Hero() {
           </div>
 
           {/* Desna kolona: slider sa slikama */}
-          <div className="order-1 sm:order-2 relative w-full h-[40vh] sm:h-[70vh] rounded-xl overflow-hidden shadow-xl">
+          <div className="order-1 sm:order-2 relative w-full h-[40vh] sm:h-[70vh] rounded-xl overflow-hidden shadow-xl"
+               style={{ WebkitMaskImage: 'radial-gradient(circle at center, black 70%, transparent 100%)', maskImage: 'radial-gradient(circle at center, black 70%, transparent 100%)' }}>
             {images.map((image, index) => (
               <div
                 key={image}

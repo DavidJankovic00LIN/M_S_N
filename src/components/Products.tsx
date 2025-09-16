@@ -224,7 +224,7 @@ export default function Products() {
   };
 
   return (
-    <div id="Proizvodi" className="bg-white py-20">
+    <div id="Proizvodi" className="py-20 bg-gradient-to-br from-[#FAF7F3] via-[#EEE4DB] to-[#c19d5f]">
       <div>
         <div className="text-center my-8">
           <FadeInWhenVisible animation="fadeUp" delay={0.2}>
@@ -255,7 +255,7 @@ export default function Products() {
           return (
             <FadeInWhenVisible key={product.id} animation={animation} delay={index * 0.1}>
               <div className="h-full">
-                <div className="card w-full h-full bg-base-100 border border-gray-300 shadow-xl rounded-lg flex flex-col overflow-hidden mx-auto">
+                <div className="card w-full h-full bg-white border border-gray-300 shadow-xl rounded-lg flex flex-col overflow-hidden mx-auto">
                   <div className="flex items-center justify-center p-4 h-64">
                     <Image
                       src={product.image}
