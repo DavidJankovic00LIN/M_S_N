@@ -118,7 +118,7 @@ export default function Navigation() {
         <div className="absolute right-3 top-1/2 -translate-y-1/2 z-50">
           <LanguageSelector />
         </div>
-        <div className="max-w-22xl mx-auto flex flex-row items-center justify-center space-x-12 py-4 px-4 sm:px-0 sm:pl-18">
+        <div className="max-w-22xl mx-auto flex flex-row items-center justify-center space-x-12 py-1 px-4 sm:px-0 sm:pl-18">
           {/* Levi linkovi */}
           <div className="flex items-center space-x-12">
                          <Link href="/#o_nama" className={`relative text-sm font-medium transition-all duration-300 font-[Nunito] group ${
@@ -149,7 +149,7 @@ export default function Navigation() {
             alt="Markus Logo"
             width={135}
             height={36}
-            className="h-12 w-auto"
+            className="h-4 w-auto"
             style={{ width: 'auto', height: 'auto' }}
           />
 
@@ -187,7 +187,7 @@ export default function Navigation() {
         <div className="absolute top-2 right-3 z-50">
           <LanguageSelector />
         </div>
-        <div className="max-w-22xl mx-auto flex flex-col items-center justify-center space-y-1 py-4 px-4">
+        <div className="max-w-22xl mx-auto flex flex-col items-center justify-center space-y-1 py-1 px-4">
           {/* Logo + dropdown meni */}
           <div className="flex flex-col items-center justify-center space-y-[4px]">
             {/* Logo */}
@@ -196,7 +196,7 @@ export default function Navigation() {
               alt="Markus Logo"
               width={180}
               height={48}
-              className="h-12 w-auto"
+              className="h-6 w-auto"
             />
 
             {/* Dropdown meni */}

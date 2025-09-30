@@ -1,3 +1,4 @@
+
 'use client';
 
 import { useEffect, useState } from 'react';
@@ -30,7 +31,7 @@ export default function Hero() {
       <div className="mx-auto max-w-7xl h-full px-4">
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 items-center min-h-[calc(100vh-6rem)]">
           {/* Leva kolona: tekst */}
-          <div className="order-2 sm:order-1 flex flex-col justify-center text-center sm:text-left">
+          <div className="order-2 sm:order-1 flex flex-col justify-center text-center sm:text-center sm:pl-14">
             <FadeInWhenVisible animation="fadeUp" delay={0.2}>
               <h1 className="mb-4 text-[34px] sm:text-[42px] leading-tight font-black text-[#2e3455] font-[Nunito]" style={{ fontWeight: 700 }}>
                 {t('hero.title')}
