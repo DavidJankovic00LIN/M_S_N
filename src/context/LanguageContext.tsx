@@ -1,16 +1,13 @@
 'use client';
 
-import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
+import React, { createContext, useCallback, useContext, useEffect, useMemo, useState, ReactNode } from 'react';
 
-// Tipovi za jezike
 type Language = 'sr' | 'en';
 
-// Interface za prevode
 interface Translations {
   [key: string]: string | Translations;
 }
 
-// Interface za Context
 interface LanguageContextType {
   currentLanguage: Language;
   changeLanguage: (lang: Language) => void;
@@ -18,72 +15,67 @@ interface LanguageContextType {
   translations: Translations;
 }
 
-// Kreiranje Context-a
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
-// Provider komponenta
+function readSavedLanguage(): Language {
+  if (typeof window === 'undefined') return 'sr';
+  const savedLanguage = localStorage.getItem('language');
+  if (savedLanguage === 'sr' || savedLanguage === 'en') return savedLanguage;
+  return 'sr';
+}
+
 export function LanguageProvider({ children }: { children: ReactNode }) {
-  const [currentLanguage, setCurrentLanguage] = useState<Language>('sr');
+  const [currentLanguage, setCurrentLanguage] = useState<Language>(readSavedLanguage);
   const [translations, setTranslations] = useState<Translations>({});
 
-  // Učitavanje prevoda
   useEffect(() => {
+    let cancelled = false;
+
     const loadTranslations = async () => {
       try {
         const langTranslations = await import(`../translations/${currentLanguage}.json`);
-        setTranslations(langTranslations.default);
+        if (!cancelled) setTranslations(langTranslations.default);
       } catch (error) {
         console.error(`Error loading translations for ${currentLanguage}:`, error);
-        // Fallback na srpski
         const fallback = await import('../translations/sr.json');
-        setTranslations(fallback.default);
+        if (!cancelled) setTranslations(fallback.default);
       }
     };
 
     loadTranslations();
+    return () => {
+      cancelled = true;
+    };
   }, [currentLanguage]);
 
-  // Funkcija za promenu jezika
-  const changeLanguage = (lang: Language) => {
-    setCurrentLanguage(lang);
-    // Čuvanje u localStorage
-    if (typeof window !== 'undefined') {
-      localStorage.setItem('language', lang);
-    }
-  };
+  useEffect(() => {
+    document.documentElement.lang = currentLanguage;
+  }, [currentLanguage]);
 
-  // Funkcija za prevod
-  const t = (key: string): string => {
+  const changeLanguage = useCallback((lang: Language) => {
+    setCurrentLanguage(lang);
+    localStorage.setItem('language', lang);
+  }, []);
+
+  const t = useCallback((key: string): string => {
     const keys = key.split('.');
     let value: string | Translations = translations;
-    
+
     for (const k of keys) {
       if (value && typeof value === 'object' && k in value) {
         value = value[k];
       } else {
-        return key; // Vraća ključ ako prevod nije pronađen
+        return key;
       }
     }
-    
+
     return typeof value === 'string' ? value : key;
-  };
+  }, [translations]);
 
-  // Učitavanje jezika iz localStorage-a na mount
-  useEffect(() => {
-    if (typeof window !== 'undefined') {
-      const savedLanguage = localStorage.getItem('language') as Language;
-             if (savedLanguage && ['sr', 'en'].includes(savedLanguage)) {
-         setCurrentLanguage(savedLanguage);
-       }
-    }
-  }, []);
-
-  const value: LanguageContextType = {
-    currentLanguage,
-    changeLanguage,
-    t,
-    translations
-  };
+  const value = useMemo<LanguageContextType>(
+    () => ({ currentLanguage, changeLanguage, t, translations }),
+    [currentLanguage, changeLanguage, t, translations]
+  );
 
   return (
     <LanguageContext.Provider value={value}>
@@ -92,7 +84,6 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
   );
 }
 
-// Custom hook za korišćenje Context-a
 export function useLanguage() {
   const context = useContext(LanguageContext);
   if (context === undefined) {

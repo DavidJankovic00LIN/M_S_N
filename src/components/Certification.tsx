@@ -55,7 +55,7 @@ export default function Certification() {
                     height={160}
                     className="w-40 h-40 mb-4"
                   />
-                  <h3 className="text-lg font-semibold text-[#2e3455] font-[Nunito]">
+                  <h3 className="cert-title text-lg font-bold text-[#2e3455] font-[Nunito]" style={{ fontWeight: 700 }}>
                     {item.title}
                   </h3>
                   <p className="text-[#1f2239] font-[Nunito] text-base mt-2">

@@ -7,7 +7,7 @@ import { useLanguage } from '../context/LanguageContext';
 interface ContactItem {
   id: number;
   icon: React.ReactNode;
-  text: string;
+  lines: string[];
 }
 
 export default function Contact() {
@@ -20,7 +20,7 @@ export default function Contact() {
           <path strokeLinecap="round" strokeLinejoin="round" d="M12 2C8 2 5 5 5 9c0 4.5 7 13 7 13s7-8.5 7-13c0-4-3-7-7-7z"/>
         </svg>
       ),
-      text: 'Karadjordjeva 123 Valjevo'
+      lines: [t('contact.address')]
     },
     {
       id: 2,
@@ -30,7 +30,7 @@ export default function Contact() {
           <polyline points="3 7 12 13 21 7"/>
         </svg>
       ),
-      text: 'office@markus.rs'
+      lines: [t('contact.email')]
     },
     {
       id: 3,
@@ -39,7 +39,7 @@ export default function Contact() {
           <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.86 19.86 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.86 19.86 0 0 1 2.1 4.18 2 2 0 0 1 4 2h3a2 2 0 0 1 2 1.72c.14 1.22.5 2.39 1.07 3.45a2 2 0 0 1-.45 2.18L8.09 10.91a16 16 0 0 0 6 6l1.56-1.56a2 2 0 0 1 2.18-.45c1.06.57 2.23.93 3.45 1.07A2 2 0 0 1 22 16.92z"/>
         </svg>
       ),
-      text: '+381 63 222 333'
+      lines: [t('contact.phone'), t('contact.phone2')]
     }
   ];
 
@@ -63,7 +63,10 @@ export default function Contact() {
           <div className="max-w-5xl mx-auto px-4">
             <div>
               <FadeInWhenVisible animation="fadeUp" delay={0.6}>
-                <h2 className="text-xl text-center mb-10 font-[Nunito] text-[#1f2239]">
+                <h2
+                  className="text-base text-center mb-10 font-[Nunito] text-[#1f2239]"
+                  style={{ fontWeight: 400, lineHeight: 1.5 }}
+                >
                   {t('contact.subtitle')}
                 </h2>
               </FadeInWhenVisible>
@@ -79,7 +82,11 @@ export default function Contact() {
                       </div>
                     </FadeInWhenVisible>
                     <FadeInWhenVisible animation="fadeIn" delay={index * 0.2 + 0.3} duration={0.72}>
-                      <p className="text-sm font-bold text-[#1f2239] font-[Nunito]">{item.text}</p>
+                      <div className="text-sm font-bold text-[#1f2239] font-[Nunito]">
+                        {item.lines.map((line) => (
+                          <p key={line}>{line}</p>
+                        ))}
+                      </div>
                     </FadeInWhenVisible>
                   </div>
                 </div>

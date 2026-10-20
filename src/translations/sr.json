@@ -92,9 +92,10 @@
   "contact": {
     "title": "Kontakt",
     "subtitle": "Za sva pitanja kontaktirajte nas putem elektronske pošte, telefona ili na našoj adresi",
-    "email": "info@milica.com",
-    "phone": "+381 11 123 456",
-    "address": "Beograd, Srbija"
+    "email": "markus.co@mts.rs",
+    "phone": "+381 14 292 901",
+    "phone2": "+381 63 356 603",
+    "address": "Karađorđeva 123, Valjevo"
   },
   "footer": {
     "description": "Vaš pouzdan partner u proizvodnji kvalitetnih vlažnih maramica, posvećen sigurnosti, kvalitetu i pristupačnosti.",
@@ -116,7 +117,7 @@
     "sections": {
       "1": {
         "title": "1. Opšte odredbe",
-        "body": "Ovi Uslovi korišćenja definišu pravila upotrebe sajta www.markus.rs. Vlasnik sajta je Markus Co d.o.o. Valjevo, Karađorđeva 123. Kontakt: office@markus.rs, telefon +381 63 222 333."
+        "body": "Ovi Uslovi korišćenja definišu pravila upotrebe sajta www.markus.rs. Vlasnik sajta je Markus Co d.o.o. Valjevo, Karađorđeva 123. Kontakt: markus.co@mts.rs, telefon +381 14 292 901, +381 63 356 603."
       },
       "2": {
         "title": "2. Opis usluge",
@@ -160,7 +161,7 @@
       "3": {"title": "3. Svrha obrade podataka", "body": "Podatke koristimo radi komunikacije, obrade upita, realizacije uslužne proizvodnje privatnih robnih marki i unapređenja ponude."},
       "4": {"title": "4. Deljenje podataka", "body": "Podaci se ne prodaju niti dele trećim stranama, osim kada je to zakonski obavezno ili neophodno za izvršavanje usluga (npr. isporuka robe)."},
       "5": {"title": "5. Sigurnost podataka", "body": "Primenujemo tehničke i organizacione mere zaštite od neovlašćenog pristupa, gubitka ili zloupotrebe."},
-      "6": {"title": "6. Prava korisnika", "body": "Imate pravo na pristup, ispravku, brisanje, ograničenje obrade ili prigovor. Kontakt: office@markus.rs ili +381 63 222 333."},
+      "6": {"title": "6. Prava korisnika", "body": "Imate pravo na pristup, ispravku, brisanje, ograničenje obrade ili prigovor. Kontakt: markus.co@mts.rs, +381 14 292 901 ili +381 63 356 603."},
       "7": {"title": "7. Kolačići", "body": "Sajt koristi kolačiće radi poboljšanja funkcionalnosti i analize posećenosti. Korišćenjem sajta pristajete na upotrebu kolačića."},
       "8": {"title": "8. Izmene politike privatnosti", "body": "Politika se povremeno ažurira. Sve izmene biće objavljene na ovoj stranici; daljim korišćenjem sajta pristajete na nove uslove."}
     }

@@ -16,9 +16,10 @@ export default function Footer() {
   ];
 
   const contactInfo = [
-    'Karađorđeva 123, Valjevo',
-    '+381 63 222 333',
-    'office@markus.rs',
+    t('contact.address'),
+    t('contact.phone'),
+    t('contact.phone2'),
+    t('contact.email'),
   ];
 
   return (

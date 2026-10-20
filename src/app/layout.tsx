@@ -1,8 +1,21 @@
 import type { Metadata, Viewport } from "next";
+import { Nunito, Quicksand } from "next/font/google";
 import "./globals.css";
 import ParallaxProviderWrapper from '@/components/ParallaxProvider';
 import { LanguageProvider } from '@/context/LanguageContext';
 import Navigation from '@/components/Navigation';
+
+const nunito = Nunito({
+  subsets: ["latin", "latin-ext"],
+  variable: "--font-nunito",
+  display: "swap",
+});
+
+const quicksand = Quicksand({
+  subsets: ["latin", "latin-ext"],
+  variable: "--font-quicksand",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   title: "Proizvodnja vlažnih maramica - Markus CO",
@@ -28,31 +41,21 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="sr">
+    <html lang="sr" className={`${nunito.variable} ${quicksand.variable}`}>
       <head>
-        {/* Favicon */}
         <link rel="icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="shortcut icon" href="/favicon.ico" />
-        
-        {/* Apple Touch Icon */}
         <link rel="apple-touch-icon" sizes="180x180" href="/assets/markus-logo.png" />
-        
-        {/* Android Icons */}
         <link rel="icon" type="image/png" sizes="32x32" href="/assets/markus-logo.png" />
         <link rel="icon" type="image/png" sizes="16x16" href="/assets/markus-logo.png" />
-        
-        {/* Microsoft Tiles */}
         <meta name="msapplication-TileColor" content="#c19d5f" />
         <meta name="theme-color" content="#c19d5f" />
-        
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
       </head>
-      <body className="overflow-x-hidden">
+      <body className={`${nunito.className} overflow-x-hidden`}>
         <LanguageProvider>
           <ParallaxProviderWrapper>
             <Navigation />
-            {children}
+            <div className="page-content">{children}</div>
           </ParallaxProviderWrapper>
         </LanguageProvider>
       </body>

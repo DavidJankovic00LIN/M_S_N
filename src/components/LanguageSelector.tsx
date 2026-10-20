@@ -36,9 +36,9 @@ export default function LanguageSelector() {
     <div className="relative" ref={dropdownRef}>
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="flex items-center space-x-2 px-2 py-1 sm:px-3 sm:py-2 rounded-lg border border-gray-200 hover:border-gray-300 transition-all duration-200 hover:bg-gray-50 text-sm sm:text-base text-[#c19d5f]"
+        className="flex items-center space-x-2 px-2 py-1 sm:px-3 sm:py-2 rounded-lg border border-[#c19d5f] hover:border-[#b08d4f] transition-all duration-200 hover:bg-gray-50 text-[14px] leading-5 sm:text-[16px] sm:leading-6 text-[#c19d5f]"
       >
-        <span className="text-base sm:text-lg text-[#c19d5f]">{currentLanguageData?.flag}</span>
+        <span className="text-[16px] leading-6 sm:text-[18px] sm:leading-7 text-[#c19d5f]">{currentLanguageData?.flag}</span>
         <svg
           className={`w-4 h-4 transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`}
           fill="none"
@@ -66,7 +66,7 @@ export default function LanguageSelector() {
                   : 'text-[#1f2239]'
               }`}
             >
-              <span className="text-base sm:text-lg text-[#c19d5f]">{lang.flag}</span>
+              <span className="text-[16px] leading-6 sm:text-[18px] sm:leading-7 text-[#c19d5f]">{lang.flag}</span>
               {lang.code === currentLanguage && (
                 <svg
                   className="w-3 h-3 sm:w-4 sm:h-4 ml-auto text-[#c19d5f]"

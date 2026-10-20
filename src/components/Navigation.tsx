@@ -2,86 +2,53 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-import { useState, useEffect, useRef, useCallback } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import LanguageSelector from './LanguageSelector';
 import { useLanguage } from '../context/LanguageContext';
+
+const SECTION_IDS = ['o_nama', 'Proizvodi', 'usluzna_proizvodnja', 'kontakt'] as const;
 
 export default function Navigation() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
-  const [lastScrollY, setLastScrollY] = useState(0);
   const [activeSection, setActiveSection] = useState('');
+  const lastScrollY = useRef(0);
   const dropdownRef = useRef<HTMLDivElement>(null);
   const { t } = useLanguage();
 
-  // Handle scroll for mobile navbar show/hide
-  const handleScroll = useCallback(() => {
-    const currentScrollY = window.scrollY;
-    
-    if (currentScrollY > lastScrollY && currentScrollY > 100) {
-      // Scrolling down - hide navbar on mobile
-      setIsVisible(false);
-    } else {
-      // Scrolling up - show navbar
-      setIsVisible(true);
-    }
-    
-    setLastScrollY(currentScrollY);
-  }, [lastScrollY]);
-
   useEffect(() => {
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, [handleScroll]);
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
 
-  // Track active section using Intersection Observer
-  useEffect(() => {
-    const observerOptions = {
-      rootMargin: '-30% 0px -60% 0px',
-      threshold: 0
+      if (currentScrollY > lastScrollY.current && currentScrollY > 100) {
+        setIsVisible(false);
+      } else {
+        setIsVisible(true);
+      }
+
+      lastScrollY.current = currentScrollY;
     };
 
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  useEffect(() => {
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
+        const sectionId = entry.target.id;
         if (entry.isIntersecting) {
-          const sectionId = entry.target.id;
-          
-          // Special handling for 'o_nama' section
-          if (sectionId === 'About') {
-            const heroElement = document.getElementById('hero');
-            if (heroElement) {
-              const heroRect = heroElement.getBoundingClientRect();
-              const aboutRect = entry.target.getBoundingClientRect();
-              
-              // Only activate 'o_nama' if Hero section is mostly out of view
-              // and About section is significantly visible
-              if (heroRect.bottom < window.innerHeight * 0.2 && 
-                  aboutRect.top < window.innerHeight * 0.7) {
-                setActiveSection(sectionId);
-              } else {
-                // If Hero is still visible, keep 'o_nama' inactive
-                setActiveSection('');
-              }
-            } else {
-              // If no Hero element found, activate normally
-              setActiveSection(sectionId);
-            }
-          } else {
-            // For other sections, activate normally
-            setActiveSection(sectionId);
-          }
+          setActiveSection(sectionId);
         } else {
-          // When section is not intersecting, remove it as active
-          if (activeSection === entry.target.id) {
-            setActiveSection('');
-          }
+          setActiveSection((current) => (current === sectionId ? '' : current));
         }
       });
-    }, observerOptions);
+    }, {
+      rootMargin: '-30% 0px -60% 0px',
+      threshold: 0,
+    });
 
-    // Observe all sections
-    const sections = ['o_nama', 'Proizvodi', 'usluzna_proizvodnja', 'kontakt'];
-    sections.forEach((sectionId) => {
+    SECTION_IDS.forEach((sectionId) => {
       const element = document.getElementById(sectionId);
       if (element) {
         observer.observe(element);
@@ -89,9 +56,8 @@ export default function Navigation() {
     });
 
     return () => observer.disconnect();
-  }, [activeSection]);
+  }, []);
 
-  // Close dropdown when clicking outside
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
@@ -104,46 +70,43 @@ export default function Navigation() {
   }, []);
 
   const menuItems = [
-    { href: '#o_nama', label: t('nav.about') },
-    { href: '#Proizvodi', label: t('nav.products') },
-    { href: '#usluzna_proizvodnja', label: t('nav.services') },
-    { href: '#kontakt', label: t('nav.contact') },
+    { id: 'o_nama', href: '/#o_nama', label: t('nav.about') },
+    { id: 'Proizvodi', href: '/#Proizvodi', label: t('nav.products') },
+    { id: 'usluzna_proizvodnja', href: '/#usluzna_proizvodnja', label: t('nav.services') },
+    { id: 'kontakt', href: '/#kontakt', label: t('nav.contact') },
   ];
+
+  const renderLink = (item: (typeof menuItems)[number]) => {
+    const isActive = activeSection === item.id;
+    return (
+      <Link
+        key={item.id}
+        href={item.href}
+        className={`relative text-[14px] leading-5 font-medium transition-all duration-300 font-[Nunito] group ${
+          isActive ? 'text-[#c19d5f]' : 'text-[#1f2239] hover:text-[#c19d5f]'
+        }`}
+      >
+        {item.label}
+        <div
+          className={`absolute bottom-0 left-0 h-0.5 bg-[#c19d5f] transition-all duration-300 ${
+            isActive ? 'w-full' : 'w-0 group-hover:w-full'
+          }`}
+        />
+      </Link>
+    );
+  };
 
   return (
     <>
-      {/* Desktop navbar - sticky */}
-      <nav className="hidden sm:block fixed top-0 left-0 right-0 bg-white shadow-lg w-full z-50 border-b border-gray-100">
-        {/* Language selector - top right (desktop) pinned to nav edges */}
+      <nav className="hidden min-[13.1in]:block fixed top-0 left-0 right-0 bg-white shadow-lg w-full z-50 border-b border-gray-100">
         <div className="absolute right-3 top-1/2 -translate-y-1/2 z-50">
           <LanguageSelector />
         </div>
-        <div className="max-w-22xl mx-auto flex flex-row items-center justify-center space-x-12 py-4 px-4 sm:px-0 sm:pl-18">
-          {/* Levi linkovi */}
+        <div className="max-w-22xl mx-auto flex flex-row items-center justify-center space-x-12 py-4 px-4 min-[13.1in]:px-0 min-[13.1in]:pl-18">
           <div className="flex items-center space-x-12">
-                         <Link href="/#o_nama" className={`relative text-sm font-medium transition-all duration-300 font-[Nunito] group ${
-               activeSection === 'o_nama' 
-                 ? 'text-[#c19d5f]' 
-                 : 'text-[#1f2239] hover:text-[#c19d5f]'
-             }`}>
-               {t('nav.about')}
-              <div className={`absolute bottom-0 left-0 h-0.5 bg-[#c19d5f] transition-all duration-300 ${
-                activeSection === 'o_nama' ? 'w-full' : 'w-0 group-hover:w-full'
-              }`}></div>
-            </Link>
-                         <Link href="/#Proizvodi" className={`relative text-sm font-medium transition-all duration-300 font-[Nunito] group ${
-               activeSection === 'Proizvod' 
-                 ? 'text-[#c19d5f]' 
-                 : 'text-[#1f2239] hover:text-[#c19d5f]'
-             }`}>
-               {t('nav.products')}
-              <div className={`absolute bottom-0 left-0 h-0.5 bg-[#c19d5f] transition-all duration-300 ${
-                activeSection === 'Proizvodi' ? 'w-full' : 'w-0 group-hover:w-full'
-              }`}></div>
-            </Link>
+            {menuItems.slice(0, 2).map(renderLink)}
           </div>
 
-          {/* Logo */}
           <Image
             src="/assets/markus_logo.png"
             alt="Markus Logo"
@@ -153,44 +116,22 @@ export default function Navigation() {
             style={{ width: 'auto', height: 'auto' }}
           />
 
-          {/* Desni linkovi */}
           <div className="flex items-center space-x-12">
-                         <Link href="/#usluzna_proizvodnja" className={`relative text-sm font-medium transition-all duration-300 font-[Nunito] group ${
-               activeSection === 'usluzna_proizvodnja' 
-                 ? 'text-[#c19d5f]' 
-                 : 'text-[#1f2239] hover:text-[#c19d5f]'
-             }`}>
-               {t('nav.services')}
-              <div className={`absolute bottom-0 left-0 h-0.5 bg-[#c19d5f] transition-all duration-300 ${
-                activeSection === 'usluzna_proizvodnja' ? 'w-full' : 'w-0 group-hover:w-full'
-              }`}></div>
-            </Link>
-                         <Link href="/#kontakt" className={`relative text-sm font-medium transition-all duration-300 font-[Nunito] group ${
-               activeSection === 'kontakt' 
-                 ? 'text-[#c19d5f]' 
-                 : 'text-[#1f2239] hover:text-[#c19d5f]'
-             }`}>
-               {t('nav.contact')}
-              <div className={`absolute bottom-0 left-0 h-0.5 bg-[#c19d5f] transition-all duration-300 ${
-                activeSection === 'kontakt' ? 'w-full' : 'w-0 group-hover:w-full'
-              }`}></div>
-            </Link>
+            {menuItems.slice(2).map(renderLink)}
           </div>
         </div>
       </nav>
 
-      {/* Mobile navbar - hidden/show on scroll */}
-      <nav className={`block sm:hidden fixed top-0 left-0 right-0 bg-white shadow-lg w-full z-50 border-b border-gray-100 transition-transform duration-300 relative ${
-        isVisible ? 'translate-y-0' : '-translate-y-full'
-      }`}>
-        {/* Language selector - top right (mobile) pinned to nav edges */}
-        <div className="absolute top-2 right-3 z-50">
+      <nav
+        className={`min-[13.1in]:hidden fixed top-0 left-0 right-0 bg-white shadow-lg w-full z-50 border-b border-gray-100 transition-transform duration-300 relative ${
+          isVisible ? 'translate-y-0' : '-translate-y-full'
+        }`}
+      >
+        <div className="absolute right-3 top-1/2 z-50 -translate-y-1/2">
           <LanguageSelector />
         </div>
         <div className="max-w-22xl mx-auto flex flex-col items-center justify-center space-y-1 py-4 px-4">
-          {/* Logo + dropdown meni */}
           <div className="flex flex-col items-center justify-center space-y-[4px]">
-            {/* Logo */}
             <Image
               src="/assets/markus_logo.png"
               alt="Markus Logo"
@@ -199,7 +140,6 @@ export default function Navigation() {
               className="h-12 w-auto"
             />
 
-            {/* Dropdown meni */}
             <div ref={dropdownRef} className="relative">
               <button
                 className="flex items-center justify-center cursor-pointer p-1"
@@ -219,19 +159,18 @@ export default function Navigation() {
                   />
                 </svg>
               </button>
-              
+
               {isMenuOpen && (
                 <ul className="absolute top-full left-1/2 transform -translate-x-1/2 mt-2 bg-white border border-gray-200 rounded-lg z-10 w-44 p-2 shadow-lg">
                   {menuItems.map((item) => (
-                    <li key={item.href} className="list-none">
-                      <a 
-                        href={item.href} 
-                        onClick={() => setIsMenuOpen(false)} 
-                        className="text-[#1f2239] px-3 py-2 rounded-md transition-all duration-200 block hover:bg-gray-100 hover:text-gray-800 font-[Nunito]"
-                        style={{ display: 'block', textDecoration: 'none' }}
+                    <li key={item.id} className="list-none">
+                      <Link
+                        href={item.href}
+                        onClick={() => setIsMenuOpen(false)}
+                        className="text-[16px] leading-6 text-[#1f2239] px-3 py-2 rounded-md transition-all duration-200 block hover:bg-gray-100 hover:text-gray-800 font-[Nunito]"
                       >
                         {item.label}
-                      </a>
+                      </Link>
                     </li>
                   ))}
                 </ul>
@@ -242,4 +181,4 @@ export default function Navigation() {
       </nav>
     </>
   );
-} 
+}

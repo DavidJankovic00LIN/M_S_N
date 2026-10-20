@@ -90,7 +90,11 @@
   },
   "contact": {
     "title": "Contact",
-    "subtitle": "For all questions, contact us via email, phone or at our address"
+    "subtitle": "For all questions, contact us via email, phone or at our address",
+    "email": "markus.co@mts.rs",
+    "phone": "+381 14 292 901",
+    "phone2": "+381 63 356 603",
+    "address": "Karađorđeva 123, Valjevo"
   },
   "footer": {
     "description": "Your reliable partner in the production of quality wet wipes, committed to safety, quality and affordability.",
@@ -112,7 +116,7 @@
     "sections": {
       "1": {
         "title": "1. General Provisions",
-        "body": "These Terms of Use define the rules for using the www.markus.rs website. The site owner is Markus Co d.o.o. Valjevo, Karađorđeva 123. Contact: office@markus.rs, phone +381 63 222 333."
+        "body": "These Terms of Use define the rules for using the www.markus.rs website. The site owner is Markus Co d.o.o. Valjevo, Karađorđeva 123. Contact: markus.co@mts.rs, phone +381 14 292 901, +381 63 356 603."
       },
       "2": {
         "title": "2. Service Description",
@@ -156,7 +160,7 @@
       "3": {"title": "3. Purpose of Data Processing", "body": "We use data for communication, handling inquiries, carrying out private label contract manufacturing, and improving our offer."},
       "4": {"title": "4. Data Sharing", "body": "Your personal data will not be sold or shared with third parties, except when legally required or necessary to execute our services (e.g., delivery via partners)."},
       "5": {"title": "5. Data Security", "body": "We implement technical and organizational measures to protect your data against unauthorized access, loss, or misuse."},
-      "6": {"title": "6. User Rights", "body": "You have the right to access, rectification, deletion, restriction of processing or objection. Contact: office@markus.rs or +381 63 222 333."},
+      "6": {"title": "6. User Rights", "body": "You have the right to access, rectification, deletion, restriction of processing or objection. Contact: markus.co@mts.rs, +381 14 292 901 or +381 63 356 603."},
       "7": {"title": "7. Cookies", "body": "Our website uses cookies to improve functionality and analyze traffic. By using the site you agree to the use of cookies in accordance with this policy."},
       "8": {"title": "8. Changes to the Privacy Policy", "body": "We may update this policy from time to time. All changes will be published on this page; by continuing to use the site you agree to the new terms."}
     }

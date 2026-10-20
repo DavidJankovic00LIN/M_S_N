@@ -1,41 +1,59 @@
 @import "tailwindcss";
-@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap');
+
+@theme {
+  --text-xs: 16px;
+  --text-xs--line-height: 20px;
+  --text-sm: 18px;
+  --text-sm--line-height: 24px;
+  --text-base: 20px;
+  --text-base--line-height: 28px;
+  --text-lg: 22px;
+  --text-lg--line-height: 32px;
+  --text-xl: 24px;
+  --text-xl--line-height: 32px;
+  --text-2xl: 28px;
+  --text-2xl--line-height: 36px;
+  --text-4xl: 40px;
+  --text-4xl--line-height: 44px;
+}
 
 :root {
   --background: #ffffff;
   --foreground: #171717;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
 html, body {
   overflow-x: hidden;
-  font-family: "Nunito", sans-serif;
+  font-family: var(--font-nunito), sans-serif;
 }
 
-/* Smooth scroll behavior */
 html {
   scroll-behavior: smooth;
 }
 
 h1, h2, h3, h4, h5, p, span, a, li, .button {
-  font-family: "Nunito", sans-serif;
+  font-family: var(--font-nunito), sans-serif;
+}
+
+p, span, a, li, .button {
   font-weight: 400;
-  
+}
+
+h1, h2, h3, h4, h5 {
+  font-weight: 700;
+  line-height: 1.28;
+}
+
+h3.cert-title {
+  line-height: 32px;
 }
 
 .font-quicksand {
-  font-family: "Quicksand", sans-serif !important;
+  font-family: var(--font-quicksand), sans-serif !important;
 }
 
 .font-nunito {
-  font-family: "Nunito", sans-serif !important;
+  font-family: var(--font-nunito), sans-serif !important;
 }
 
 body {
@@ -43,7 +61,17 @@ body {
   color: var(--foreground);
 }
 
-/* Global Nunito font */
+.page-content {
+  font-size: 20px;
+  line-height: calc(28 / 20);
+}
+
 * {
-  font-family: "Nunito", sans-serif;
-} 
+  font-family: var(--font-nunito), sans-serif;
+}
+
+@layer utilities {
+  .font-\[Nunito\] {
+    font-family: var(--font-nunito), sans-serif;
+  }
+}

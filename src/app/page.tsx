@@ -5,7 +5,7 @@ import Products from '@/components/Products';
 import Services from '@/components/Services';
 import Contact from '@/components/Contact';
 import Footer from '@/components/Footer';
-import Parallax from '@/components/Paralax';
+import Parallax from '@/components/Parallax';
 
 
 export default function Home() {
