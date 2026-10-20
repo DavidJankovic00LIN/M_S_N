@@ -10,7 +10,7 @@ const Parallax = () => {
     setTarget(node ?? undefined)
   }, [])
 
-  const parallax = useParallax<HTMLDivElement>({
+  const { ref: parallaxRef } = useParallax<HTMLDivElement>({
     speed: -15,
     targetElement: target,
   })
@@ -20,7 +20,7 @@ const Parallax = () => {
       ref={setSection}
       className="relative h-[600px] flex items-center justify-center overflow-hidden"
     >
-      <div ref={parallax.ref} className="absolute inset-0 -z-10 w-full h-[750px] -top-20">
+      <div ref={parallaxRef} className="absolute inset-0 -z-10 w-full h-[750px] -top-20">
         <Image
           src="/assets/paralax_1.jpg"
           alt="Parallax pozadina"
