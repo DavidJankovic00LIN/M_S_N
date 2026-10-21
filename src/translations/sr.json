@@ -72,6 +72,14 @@
         "label2": "Za bebe",
         "label3": "Ultra nežne"
       }
+    },
+    "packSizes": {
+      "babyFit": "72 i 64 Komada",
+      "perfecto": "50 Komada",
+      "universal": "80 Komada",
+      "disinfect": "15 Komada",
+      "wet": "15 Komada",
+      "eko": "72 Komada"
     }
   },
   "services": {

@@ -72,6 +72,14 @@
         "label2": "For babies",
         "label3": "Ultra gentle"
       }
+    },
+    "packSizes": {
+      "babyFit": "72 and 64 pieces",
+      "perfecto": "50 pieces",
+      "universal": "80 pieces",
+      "disinfect": "15 pieces",
+      "wet": "15 pieces",
+      "eko": "72 pieces"
     }
   },
   "services": {

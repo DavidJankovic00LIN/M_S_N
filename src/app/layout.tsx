@@ -18,6 +18,7 @@ const quicksand = Quicksand({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://www.markus.rs"),
   title: "Proizvodnja vlažnih maramica - Markus CO",
   description: "Markus Co je porodična firma iz Valjeva, osnovana 1994. godine, sa jasnom misijom da potrošačima obezbedi kvalitetne i pristupačne proizvode za ličnu higijenu.",
   keywords: "vlažne maramice, baby fit, perfecto, universal, desinfect, higijena, bebe",
@@ -25,7 +26,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Vlažne maramice za bebe. Markus Co",
     description: "Kvalitetne vlažne maramice za bebe i univerzalnu upotrebu",
-    url: "www.markus.rs",
+    url: "https://www.markus.rs",
     type: "website",
   },
 };
@@ -43,8 +44,6 @@ export default function RootLayout({
   return (
     <html lang="sr" className={`${nunito.variable} ${quicksand.variable}`}>
       <head>
-        <link rel="icon" type="image/x-icon" href="/favicon.ico" />
-        <link rel="shortcut icon" href="/favicon.ico" />
         <link rel="apple-touch-icon" sizes="180x180" href="/assets/markus-logo.png" />
         <link rel="icon" type="image/png" sizes="32x32" href="/assets/markus-logo.png" />
         <link rel="icon" type="image/png" sizes="16x16" href="/assets/markus-logo.png" />

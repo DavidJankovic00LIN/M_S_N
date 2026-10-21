@@ -13,7 +13,6 @@ interface ProductCertificate {
 interface ProductDefinition {
   id: string;
   image: string;
-  packSize: string;
   certificates: ProductCertificate[];
 }
 
@@ -22,13 +21,13 @@ interface Product extends ProductDefinition {
   description: string;
   modalContent: string;
   labels: string[];
+  packSize: string;
 }
 
 const PRODUCT_CATALOG: ProductDefinition[] = [
   {
     id: 'babyFit',
     image: '/assets/baby_fit.jpg',
-    packSize: '72 i 64 Komada',
     certificates: [
       { src: '/assets/sunce.png', labelKey: 'products.modalLabels.babyFit.label1' },
       { src: '/assets/pero.png', labelKey: 'products.modalLabels.babyFit.label2' },
@@ -38,7 +37,6 @@ const PRODUCT_CATALOG: ProductDefinition[] = [
   {
     id: 'perfecto',
     image: '/assets/perfecto_fit.jpg',
-    packSize: '50 Komada',
     certificates: [
       { src: '/assets/lako_ciscenje.png', labelKey: 'products.modalLabels.perfecto.label1' },
       { src: '/assets/sjaj.png', labelKey: 'products.modalLabels.perfecto.label2' },
@@ -48,7 +46,6 @@ const PRODUCT_CATALOG: ProductDefinition[] = [
   {
     id: 'universal',
     image: '/assets/universal.jpg',
-    packSize: '80 Komada',
     certificates: [
       { src: '/assets/family.png', labelKey: 'products.modalLabels.universal.label1' },
       { src: '/assets/univerzal.png', labelKey: 'products.modalLabels.universal.label2' },
@@ -58,7 +55,6 @@ const PRODUCT_CATALOG: ProductDefinition[] = [
   {
     id: 'disinfect',
     image: '/assets/Disinfect.jpg',
-    packSize: '15 Komada',
     certificates: [
       { src: '/assets/antibak.png', labelKey: 'products.modalLabels.disinfect.label1' },
       { src: '/assets/univerzal.png', labelKey: 'products.modalLabels.disinfect.label2' },
@@ -68,7 +64,6 @@ const PRODUCT_CATALOG: ProductDefinition[] = [
   {
     id: 'wet',
     image: '/assets/wet.jpg',
-    packSize: '15 Komada',
     certificates: [
       { src: '/assets/m_ic_1.png', labelKey: 'products.modalLabels.wet.label1' },
       { src: '/assets/univerzal.png', labelKey: 'products.modalLabels.wet.label2' },
@@ -78,7 +73,6 @@ const PRODUCT_CATALOG: ProductDefinition[] = [
   {
     id: 'eko',
     image: '/assets/eko.jpg',
-    packSize: '72 Komada',
     certificates: [
       { src: '/assets/prirodno.png', labelKey: 'products.modalLabels.eko.label1' },
       { src: '/assets/beba_3.png', labelKey: 'products.modalLabels.eko.label2' },
@@ -156,6 +150,7 @@ export default function Products() {
         name: t(`products.productNames.${product.id}`),
         description: t(`products.productDescriptions.${product.id}`),
         modalContent: t(`products.modalContent.${product.id}`),
+        packSize: t(`products.packSizes.${product.id}`),
         labels: product.certificates.map((certificate) => t(certificate.labelKey)),
       })),
     [t]
